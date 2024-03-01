@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
+    [SerializeField] private GameObject slashAnimPrefab;
+    [SerializeField] private Transform slashAnimSpawnPoint;
+
     private PlayerControl playerControl;
     private Animator anim;
     private PlayerController playerController;
     private ActiveWeapon activeWeapon;
+
+    private GameObject slashAnim;
 
     private void Awake()
     {
@@ -35,6 +40,47 @@ public class Sword : MonoBehaviour
     private void Attack()
     {
         anim.SetTrigger("Attack");
+
+        // Pastikan slashAnimPrefab dan slashAnimSpawnPoint sudah diinisialisasi di Inspector Unity
+        if (slashAnimPrefab != null && slashAnimSpawnPoint != null)
+        {
+            slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+            slashAnim.transform.SetParent(this.transform.parent);
+        }
+    }
+
+    public void SwingUpFlipAnim()
+    {
+        if (slashAnim != null)
+        {
+            slashAnim.transform.rotation = Quaternion.Euler(-180, 0, 0);
+
+            if (playerController.FacingLeft)
+            {
+                slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                slashAnim.GetComponent<SpriteRenderer>().flipX = false; // Atau biarkan seperti ini sesuai kebutuhan
+            }
+        }
+    }
+
+    public void SwingDownFlipAnim()
+    {
+        if (slashAnim != null)
+        {
+            slashAnim.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            if (playerController.FacingLeft)
+            {
+                slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                slashAnim.GetComponent<SpriteRenderer>().flipX = false; // Atau biarkan seperti ini sesuai kebutuhan
+            }
+        }
     }
 
     private void MouseFollowWithOffset()
