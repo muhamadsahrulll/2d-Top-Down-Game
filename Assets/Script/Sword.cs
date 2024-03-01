@@ -6,6 +6,7 @@ public class Sword : MonoBehaviour
 {
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
+    [SerializeField] private Transform weaponColider;
 
     private PlayerControl playerControl;
     private Animator anim;
@@ -40,6 +41,7 @@ public class Sword : MonoBehaviour
     private void Attack()
     {
         anim.SetTrigger("Attack");
+        weaponColider.gameObject.SetActive(true);
 
         // Pastikan slashAnimPrefab dan slashAnimSpawnPoint sudah diinisialisasi di Inspector Unity
         if (slashAnimPrefab != null && slashAnimSpawnPoint != null)
@@ -47,6 +49,11 @@ public class Sword : MonoBehaviour
             slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
             slashAnim.transform.SetParent(this.transform.parent);
         }
+    }
+
+    public void DoneAttackingAnimEvent()
+    {
+        weaponColider.gameObject.SetActive(false);
     }
 
     public void SwingUpFlipAnim()
@@ -90,12 +97,14 @@ public class Sword : MonoBehaviour
         if (playerController.sprite.flipX)
         {
             // Player menghadap kiri (flipX true)
-            activeWeapon.transform.rotation = Quaternion.Euler(0, 180, angle);
+            activeWeapon.transform.rotation = Quaternion.Euler(0, -180, angle);
+            weaponColider.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
             // Player menghadap kanan (flipX false)
             activeWeapon.transform.rotation = Quaternion.Euler(0, 0, angle);
+            weaponColider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }
