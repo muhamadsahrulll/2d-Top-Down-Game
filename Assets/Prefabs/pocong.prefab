@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2235095126769741929}
   - component: {fileID: 2235095126769741911}
   - component: {fileID: 9025346085960551795}
+  - component: {fileID: 446749242882175528}
+  - component: {fileID: 1725084565229399330}
   m_Layer: 0
   m_Name: pocong
   m_TagString: Untagged
@@ -195,3 +197,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d035624356568044bab3676426b864b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 3
+--- !u!114 &446749242882175528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235095126769741934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d246848c1853834b8a5c7dc2549537c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackTime: 0.2
+--- !u!114 &1725084565229399330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235095126769741934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8296262e6df26f846958a6f9ee78652a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whiteFlashMat: {fileID: 2100000, guid: 2839be76d11abd14c9bc41ceedea1ac4, type: 2}
+  restoreDefaultMatTime: 0.2

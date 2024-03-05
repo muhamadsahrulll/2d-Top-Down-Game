@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40a9998430427c4f8262984618b4382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 1
 --- !u!1 &285849316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1304,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446749242882175528, guid: 044709b3e7cf3ad4caeb35031e2c2485, type: 3}
+      propertyPath: knockBackTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2235095126769741930, guid: 044709b3e7cf3ad4caeb35031e2c2485, type: 3}
       propertyPath: m_RootOrder
       value: 4
