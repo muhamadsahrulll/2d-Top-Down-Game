@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
     [SerializeField] private Transform weaponColider;
+    [SerializeField] private float swordAttackCD = .5f;
 
-    private PlayerControl playerControl;
+
     private Animator anim;
     private PlayerController playerController;
     private ActiveWeapon activeWeapon;
@@ -20,41 +21,38 @@ public class Sword : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         anim = GetComponent<Animator>();
-        playerControl = new PlayerControl();
+        
     }
 
-    private void OnEnable()
-    {
-        playerControl.Enable();
-    }
-
-    private void Start()
-    {
-        playerControl.Combat.Attack.started += _ => Attack();
-    }
+    
 
     private void Update()
     {
         MouseFollowWithOffset();
     }
 
-    private void Attack()
+    public void Attack()
     {
+        // isAttacking = true;
         anim.SetTrigger("Attack");
         weaponColider.gameObject.SetActive(true);
-
-        // Pastikan slashAnimPrefab dan slashAnimSpawnPoint sudah diinisialisasi di Inspector Unity
-        if (slashAnimPrefab != null && slashAnimSpawnPoint != null)
-        {
-            slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
-            slashAnim.transform.SetParent(this.transform.parent);
-        }
+        slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+        slashAnim.transform.parent = this.transform.parent;
+        StartCoroutine(AttackCDRoutine());
     }
 
     public void DoneAttackingAnimEvent()
     {
         weaponColider.gameObject.SetActive(false);
     }
+
+    private IEnumerator AttackCDRoutine()
+    {
+        yield return new WaitForSeconds(swordAttackCD);
+        ActiveWeapon.Instance.ToggleIsAttacking(false);
+    }
+
+
 
     public void SwingUpFlipAnim()
     {
