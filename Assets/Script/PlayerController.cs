@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
-    public static PlayerController Instance;
+    //public static PlayerController Instance;
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private Transform weaponCollider;
+
 
     private PlayerControl playerControl;
     private Vector2 movement;
@@ -18,9 +20,10 @@ public class PlayerController : MonoBehaviour
     private bool facingLeft = false;
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+
+        base.Awake();
         playerControl = new PlayerControl();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -41,6 +44,11 @@ public class PlayerController : MonoBehaviour
     {
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
     }
 
     private void PlayerInput()
