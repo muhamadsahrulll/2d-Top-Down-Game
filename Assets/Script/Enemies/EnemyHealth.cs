@@ -20,6 +20,12 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = Health;
     }
 
+    private void Update()
+    {
+        Health = currentHealth;
+        DetechDeath();
+    }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -31,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
+            Debug.Log("Musuh Mati");
             Destroy(gameObject);
         }
     }
