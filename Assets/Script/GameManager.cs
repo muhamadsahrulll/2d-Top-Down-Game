@@ -11,10 +11,13 @@ public class GameManager : MonoBehaviour
     public int totalOrganicTrash = 5;
     public int organicTrashReward = 10;
 
+    
+
     public TextMeshProUGUI trashCollectedText;
     public TextMeshProUGUI totalOrganicTrashText;
     public GameObject tutor1;
 
+    
 
     private void Awake()
     {
@@ -54,15 +57,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+   
+
     public void LoadGameData()
     {
         organicTrashCollected = PlayerPrefs.GetInt("OrganicTrashCollected", 0);
+        
         UpdateUIText();
     }
 
     public void SaveGameData()
     {
         PlayerPrefs.SetInt("OrganicTrashCollected", organicTrashCollected);
+       
+
+        
     }
 
     private void UpdateUIText()
