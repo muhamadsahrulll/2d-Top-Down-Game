@@ -60,10 +60,24 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Attack()
     {
+
+        if (ActiveWeapon.Instance.CurrentActiveWeapon == null)
+        {
+            return;
+        }
+
         if (attackButtonDown && !isAttacking)
         {
             isAttacking = true;
             (CurrentActiveWeapon as IWeapon).Attack();
         }
+
+        StartCoroutine(AttackCD());
     }
+
+    public IEnumerator AttackCD()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+
 }
