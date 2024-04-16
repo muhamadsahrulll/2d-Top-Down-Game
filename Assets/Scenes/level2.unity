@@ -13573,6 +13573,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInfo: {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}
+--- !u!1 &1398430028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3880426285883866521, guid: 3ea3723c095ad6c409c19daa81bfb485, type: 3}
+  m_PrefabInstance: {fileID: 3880426286207251297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1398430033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398430028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfab6cffffca34347a7c01fb904c9da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trashCategory: {fileID: 11400000, guid: 42c7d470b44bbc74a8b4f61e1fd0a5f5, type: 2}
 --- !u!1 &1403477836
 GameObject:
   m_ObjectHideFlags: 0
@@ -30492,7 +30510,8 @@ PrefabInstance:
       propertyPath: trashCategory
       value: 
       objectReference: {fileID: 11400000, guid: 42c7d470b44bbc74a8b4f61e1fd0a5f5, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6298297278675066983, guid: 3ea3723c095ad6c409c19daa81bfb485, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3ea3723c095ad6c409c19daa81bfb485, type: 3}
 --- !u!1001 &4024239013102852362
 PrefabInstance:

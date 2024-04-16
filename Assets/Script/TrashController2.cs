@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashController : MonoBehaviour
+public class TrashController2 : MonoBehaviour
 {
     public TrashCategory trashCategory;
 
@@ -10,10 +10,9 @@ public class TrashController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.CollectOrganicTrash();
-            //InorganicManager.Instance.CollectInorganicTrash();
+            InorganicManager.Instance.CollectInorganicTrash();
             Destroy(gameObject);
-            Debug.Log("Sampah");
+            Debug.Log("Sampah anorganic");
         }
     }
 }
