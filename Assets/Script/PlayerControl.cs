@@ -123,17 +123,6 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""856a64ec-2134-4025-bca5-78f1ff1b6fe7"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""79aa135b-6bd1-4152-9fc9-77e8080fa5f5"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",

@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class Timer : MonoBehaviour
+{
+    [SerializeField] public float timeRemaining = 60f;
+    private bool timerIsRunning = false;
+    public TextMeshProUGUI timerTxt;
+
+    private void Start()
+    {
+        // Mulai timer saat game dimulai
+        timerIsRunning = true;
+    }
+
+    private void Update()
+    {
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+            }
+            else
+            {
+                Debug.Log("Game Over!"); // Tampilkan pesan ketika waktu habis
+                timeRemaining = 0;
+                timerIsRunning = false;
+            }
+        }
+
+        UpdateTimerUI();
+    }
+
+    public void PauseTimer()
+    {
+        timerIsRunning = false;
+    }
+
+    public void ResumeTimer()
+    {
+        timerIsRunning = true;
+    }
+
+    void UpdateTimerUI()
+    {
+        // Ubah nilai teks sesuai dengan nilai timeRemaining
+        timerTxt.text = "Waktu: " + Mathf.Round(timeRemaining).ToString();
+    }
+
+
+}

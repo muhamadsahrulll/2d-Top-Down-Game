@@ -61,16 +61,27 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     private void Attack()
     {
 
-        if (ActiveWeapon.Instance.CurrentActiveWeapon == null)
+        //if (ActiveWeapon.Instance.CurrentActiveWeapon == null)
+        //{
+        //return;
+        //}
+
+        //if (attackButtonDown && !isAttacking)
+        //{
+        //isAttacking = true;
+        //(CurrentActiveWeapon as IWeapon).Attack();
+        //}
+
+        if (CurrentActiveWeapon != null && CurrentActiveWeapon is IWeapon)
         {
-            return;
+            if (attackButtonDown && !isAttacking)
+            {
+                isAttacking = true;
+                (CurrentActiveWeapon as IWeapon).Attack();
+            }
         }
 
-        if (attackButtonDown && !isAttacking)
-        {
-            isAttacking = true;
-            (CurrentActiveWeapon as IWeapon).Attack();
-        }
+        
 
         StartCoroutine(AttackCD());
     }

@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     
 
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -69,9 +71,6 @@ public class GameManager : MonoBehaviour
     public void SaveGameData()
     {
         PlayerPrefs.SetInt("OrganicTrashCollected", organicTrashCollected);
-       
-
-        
     }
 
     private void UpdateUIText()
@@ -79,4 +78,6 @@ public class GameManager : MonoBehaviour
         trashCollectedText.text = "Sampah Terkumpul: " + organicTrashCollected + "/" + totalOrganicTrash;
         totalOrganicTrashText.text = "Total Sampah Organik: " + totalOrganicTrash;
     }
+
+    
 }

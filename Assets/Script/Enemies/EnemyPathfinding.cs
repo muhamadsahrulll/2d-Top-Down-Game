@@ -10,6 +10,7 @@ public class EnemyPathfinding : MonoBehaviour
     private Vector2 moveDir;
     private Knockback knockback;
 
+    private bool isMovementStopped = false;
 
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (knockback.GettingKnockedBack) { return; }
+        if (knockback.GettingKnockedBack || isMovementStopped) { return; }
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
         // Memastikan sprite menghadap ke arah yang benar
@@ -44,5 +45,18 @@ public class EnemyPathfinding : MonoBehaviour
     public void MoveTo(Vector2 targetposition)
     {
         moveDir = (targetposition - (Vector2)transform.position).normalized;
+    }
+
+    // Metode untuk menghentikan pergerakan musuh
+    public void StopMovement()
+    {
+        isMovementStopped = true;
+        rb.velocity = Vector2.zero;
+    }
+
+    // Metode untuk melanjutkan pergerakan musuh
+    public void ResumeMovement()
+    {
+        isMovementStopped = false;
     }
 }
