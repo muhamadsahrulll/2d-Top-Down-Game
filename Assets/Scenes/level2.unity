@@ -2556,6 +2556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemaining: 60
   timerTxt: {fileID: 587510937}
+  player: {fileID: 285849316}
 --- !u!114 &339919229
 MonoBehaviour:
   m_ObjectHideFlags: 0

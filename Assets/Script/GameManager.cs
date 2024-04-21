@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI trashCollectedText;
     public TextMeshProUGUI totalOrganicTrashText;
     public GameObject tutor1;
+    public GameObject selamat;
+    
 
     
 
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
     }
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         UpdateUIText();
+        SaveGameData();
     }
 
     public void CollectOrganicTrash()

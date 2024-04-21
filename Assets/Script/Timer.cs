@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] public float timeRemaining = 60f;
     private bool timerIsRunning = false;
     public TextMeshProUGUI timerTxt;
+    public GameObject player;
 
     private void Start()
     {
@@ -37,11 +38,13 @@ public class Timer : MonoBehaviour
     public void PauseTimer()
     {
         timerIsRunning = false;
+        player.gameObject.SetActive(false);
     }
 
     public void ResumeTimer()
     {
         timerIsRunning = true;
+        player.gameObject.SetActive(true);
     }
 
     void UpdateTimerUI()

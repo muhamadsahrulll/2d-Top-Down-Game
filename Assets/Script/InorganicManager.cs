@@ -35,6 +35,12 @@ public class InorganicManager : MonoBehaviour
         LoadGameData();
     }
 
+    private void Update()
+    {
+        UpdateUIText();
+        SaveGameData();
+    }
+
     public void CollectInorganicTrash()
     {
         inorganicTrashCollected++;
