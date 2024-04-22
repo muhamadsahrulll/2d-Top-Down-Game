@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class InorganicManager : MonoBehaviour
 {
     public static InorganicManager Instance;
+    public Timer timer;
 
     // Variabel untuk sampah anorganik
     public int inorganicTrashCollected = 0;
@@ -13,6 +15,8 @@ public class InorganicManager : MonoBehaviour
     public int inorganicTrashReward = 10;
 
     public GameObject tutor1;
+    public GameObject selamat;
+    public GameObject player;
 
     public TextMeshProUGUI inorganicTrashCollectedText;
     public TextMeshProUGUI totalInorganicTrashText;
@@ -33,6 +37,8 @@ public class InorganicManager : MonoBehaviour
     private void Start()
     {
         LoadGameData();
+        UpdateUIText();
+        tutor1.SetActive(true);
     }
 
     private void Update()
@@ -50,7 +56,8 @@ public class InorganicManager : MonoBehaviour
         {
             Debug.Log("Inorganic Trash Mission Completed");
             PlayerPrefs.SetInt("InorganicTrashReward", inorganicTrashReward);
-            // Berikan hadiah ke pemain
+            selamat.SetActive(true);
+            timer.PauseTimer();
         }
     }
 
@@ -69,6 +76,25 @@ public class InorganicManager : MonoBehaviour
     {
         inorganicTrashCollectedText.text = "Inorganic Trash Collected: " + inorganicTrashCollected + "/" + totalInorganicTrash;
         totalInorganicTrashText.text = "Total Inorganic Trash: " + totalInorganicTrash;
+    }
+
+    private void RestartGame()
+    {
+        // Reset nilai-nilai yang perlu di-reset
+        inorganicTrashCollected = 0;
+        PlayerPrefs.SetInt("InorganicTrashCollected", inorganicTrashCollected);
+
+        // Restart timer
+        FindObjectOfType<Timer>().timeRemaining = 60f;
+
+        // Restart scene atau lakukan langkah-langkah lain yang diperlukan untuk memulai ulang game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        player.SetActive(true);
+    }
+
+    public void Restartgame()
+    {
+        RestartGame();
     }
 
 }

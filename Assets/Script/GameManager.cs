@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public Timer timer;
 
     public int organicTrashCollected = 0;
     public int totalOrganicTrash = 5;
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI totalOrganicTrashText;
     public GameObject tutor1;
     public GameObject selamat;
+    public GameObject player;
     
 
     
@@ -59,7 +62,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Misi Selesai");
             PlayerPrefs.SetInt("OrganicTrashReward", organicTrashReward);
-            // Berikan hadiah ke pemain
+            selamat.SetActive(true);
+            timer.PauseTimer();
         }
     }
 
@@ -83,5 +87,25 @@ public class GameManager : MonoBehaviour
         totalOrganicTrashText.text = "Total Sampah Organik: " + totalOrganicTrash;
     }
 
-    
+    private void RestartGame()
+    {
+        // Reset nilai-nilai yang perlu di-reset
+        organicTrashCollected = 0;
+        PlayerPrefs.SetInt("OrganicTrashCollected", organicTrashCollected);
+
+        // Restart timer
+        FindObjectOfType<Timer>().timeRemaining = 60f;
+
+        // Restart scene atau lakukan langkah-langkah lain yang diperlukan untuk memulai ulang game
+        SceneManager.LoadScene("level1");
+        player.SetActive(true);
+        
+    }
+
+    public void Restartgame()
+    {
+        RestartGame();
+    }
+
+
 }

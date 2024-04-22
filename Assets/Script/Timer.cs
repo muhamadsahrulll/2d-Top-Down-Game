@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     private bool timerIsRunning = false;
     public TextMeshProUGUI timerTxt;
     public GameObject player;
+    public GameObject gameover;
 
     private void Start()
     {
@@ -29,6 +30,8 @@ public class Timer : MonoBehaviour
                 Debug.Log("Game Over!"); // Tampilkan pesan ketika waktu habis
                 timeRemaining = 0;
                 timerIsRunning = false;
+                gameover.SetActive(true);
+                player.SetActive(false);
             }
         }
 
@@ -52,6 +55,8 @@ public class Timer : MonoBehaviour
         // Ubah nilai teks sesuai dengan nilai timeRemaining
         timerTxt.text = "Waktu: " + Mathf.Round(timeRemaining).ToString();
     }
+
+    
 
 
 }
