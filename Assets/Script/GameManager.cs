@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -44,12 +44,7 @@ public class GameManager : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
-        // Mendapatkan referensi saat permainan dimulai
-        trashCollectedText = GameObject.Find("sampahTerkumpul").GetComponent<TextMeshProUGUI>();
-        totalOrganicTrashText = GameObject.Find("totalSampah").GetComponent<TextMeshProUGUI>();
-        tutor1 = GameObject.Find("tutor");
-        selamat = GameObject.Find("win");
-        player = GameObject.Find("Player");
+        
     }
 
     private void Update()
