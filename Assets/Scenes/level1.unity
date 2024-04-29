@@ -6271,7 +6271,7 @@ GameObject:
   - component: {fileID: 906252498}
   - component: {fileID: 906252497}
   m_Layer: 5
-  m_Name: totalsampah
+  m_Name: totalSampah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
