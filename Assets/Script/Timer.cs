@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -56,7 +57,10 @@ public class Timer : MonoBehaviour
         timerTxt.text = "Waktu: " + Mathf.Round(timeRemaining).ToString();
     }
 
-    
+    public void Loadscene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 
 
 }
