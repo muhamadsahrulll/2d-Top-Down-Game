@@ -34,4 +34,6 @@ public class TrashQuiz : MonoBehaviour
         quiz.SetActive(false);
         Debug.Log("jawaban salah");
     }
+
+    
 }
