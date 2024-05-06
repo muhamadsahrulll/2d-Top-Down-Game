@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class GameManager : MonoBehaviour
     public int organicTrashCollected = 0;
     public int totalOrganicTrash = 5;
     public int organicTrashReward = 10;
+    public ParticleSystem finish1;
+    public ParticleSystem finish2;
 
-    
+
 
     public TextMeshProUGUI trashCollectedText;
     public TextMeshProUGUI totalOrganicTrashText;
@@ -65,6 +68,12 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("OrganicTrashReward", organicTrashReward);
             selamat.SetActive(true);
             timer.PauseTimer();
+            finish1.Play();
+            finish2.Play();
+            // Instansiasi prefab confetti
+            //Instantiate(confettiPrefab1, new Vector3(-1004.92804f, -462.335999f, -0.128365248f), Quaternion.identity);
+            // Instansiasi prefab confetti
+            //Instantiate(confettiPrefab2, transform.position, Quaternion.identity);
         }
     }
 
