@@ -17,6 +17,8 @@ public class InorganicManager : MonoBehaviour
     public GameObject tutor1;
     public GameObject selamat;
     public GameObject player;
+    public ParticleSystem finish1;
+    public ParticleSystem finish2;
 
     public TextMeshProUGUI inorganicTrashCollectedText;
     public TextMeshProUGUI totalInorganicTrashText;
@@ -58,6 +60,8 @@ public class InorganicManager : MonoBehaviour
             PlayerPrefs.SetInt("InorganicTrashReward", inorganicTrashReward);
             selamat.SetActive(true);
             timer.PauseTimer();
+            finish1.Play();
+            finish2.Play();
         }
     }
 
