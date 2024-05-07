@@ -21,7 +21,7 @@ public class TrashQuiz : MonoBehaviour
 
     public void Quizbenar1()
     {
-        GameManager.Instance.CollectOrganicTrash();
+        QuizManager1.Instance.CollectQuizTrash();
         Destroy(gameObject);
         quiz.SetActive(false);
         Debug.Log("jawaban benar");
