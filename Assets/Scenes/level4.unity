@@ -3320,6 +3320,8 @@ MonoBehaviour:
   organicTrashCollected: 0
   totalOrganicTrash: 4
   organicTrashReward: 10
+  finish1: {fileID: 0}
+  finish2: {fileID: 0}
   trashCollectedText: {fileID: 1848324486}
   totalOrganicTrashText: {fileID: 906252497}
   tutor1: {fileID: 454551603}
@@ -6710,7 +6712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.584886, y: 2.05587, z: -10}
+  m_LocalPosition: {x: 9.233231, y: 2.0557098, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
