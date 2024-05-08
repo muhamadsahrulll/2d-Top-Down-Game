@@ -3390,8 +3390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 339919228}
-  quizTrashCollected: 4
-  totalquizTrash: 5
+  quizTrashCollected: 0
+  totalquizTrash: 4
   quizTrashReward: 10
   tutor1: {fileID: 454551603}
   selamat: {fileID: 331359373}
