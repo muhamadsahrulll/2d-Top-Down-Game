@@ -27,6 +27,14 @@ public class TrashQuiz : MonoBehaviour
         Debug.Log("jawaban benar");
     }
 
+    public void Quizbenar2()
+    {
+        QuizManager2.Instance.CollectQuizTrash2();
+        Destroy(gameObject);
+        quiz.SetActive(false);
+        Debug.Log("jawaban benar");
+    }
+
     public void Quizsalah1()
     {
         playerHealth.TakeDamage(10);
