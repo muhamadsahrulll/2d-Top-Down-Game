@@ -1,0 +1,90 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ScoreManager : MonoBehaviour
+{
+    public static ScoreManager Instance;
+
+    // Variabel untuk menyimpan skor organik tiap level
+    public int level1OrganicScore;
+    public int level2OrganicScore;
+    public int level3OrganicScore;
+    public int level4OrganicScore;
+
+    // Variabel untuk menyimpan skor organik keseluruhan
+    public int totalOrganicScore;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            //DontDestroyOnLoad(gameObject); // Jika perlu agar objek tidak dihancurkan saat pindah scene
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        LoadScores();
+        CalculateTotalOrganicScore();
+    }
+
+    public void Update()
+    {
+        SaveScores();
+    }
+
+    // Fungsi untuk menambah skor organik pada level tertentu
+    public void AddOrganicScore(int level, int score)
+    {
+        switch (level)
+        {
+            case 1:
+                level1OrganicScore += score;
+                break;
+            case 2:
+                level2OrganicScore += score;
+                break;
+            case 3:
+                level3OrganicScore += score;
+                break;
+            case 4:
+                level4OrganicScore += score;
+                break;
+            default:
+                Debug.LogWarning("Level tidak valid.");
+                break;
+        }
+        SaveScores();
+        CalculateTotalOrganicScore();
+    }
+
+    // Fungsi untuk menyimpan skor organik pada PlayerPrefs
+    private void SaveScores()
+    {
+        PlayerPrefs.SetInt("Level1OrganicScore", level1OrganicScore);
+        PlayerPrefs.SetInt("Level2OrganicScore", level2OrganicScore);
+        PlayerPrefs.SetInt("Level3OrganicScore", level3OrganicScore);
+        PlayerPrefs.SetInt("Level4OrganicScore", level4OrganicScore);
+    }
+
+    // Fungsi untuk memuat skor organik dari PlayerPrefs
+    private void LoadScores()
+    {
+        level1OrganicScore = PlayerPrefs.GetInt("Level1OrganicScore");
+        level2OrganicScore = PlayerPrefs.GetInt("Level2OrganicScore");
+        level3OrganicScore = PlayerPrefs.GetInt("Level3OrganicScore");
+        level4OrganicScore = PlayerPrefs.GetInt("Level4OrganicScore");
+    }
+
+    // Fungsi untuk menghitung total skor organik keseluruhan
+    private void CalculateTotalOrganicScore()
+    {
+        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore;
+    }
+}

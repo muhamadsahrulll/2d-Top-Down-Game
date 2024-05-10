@@ -12,14 +12,16 @@ public class GameManager : MonoBehaviour
 
     public int organicTrashCollected = 0;
     public int totalOrganicTrash = 5;
-    public int organicTrashReward = 10;
+    public int organicTrashReward = 100;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
+    private int currentLevel = 1;
 
 
 
     public TextMeshProUGUI trashCollectedText;
     public TextMeshProUGUI totalOrganicTrashText;
+    public TextMeshProUGUI rewardText;
     public GameObject tutor1;
     public GameObject selamat;
     public GameObject player;
@@ -70,6 +72,8 @@ public class GameManager : MonoBehaviour
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
+            ScoreManager.Instance.AddOrganicScore(currentLevel, organicTrashReward); // Menambah skor organik pada level tertentu
+            rewardText.text = "Selamat Anda Mendapatkan Score : " + organicTrashReward;
             // Instansiasi prefab confetti
             //Instantiate(confettiPrefab1, new Vector3(-1004.92804f, -462.335999f, -0.128365248f), Quaternion.identity);
             // Instansiasi prefab confetti
