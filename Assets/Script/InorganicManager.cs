@@ -12,13 +12,15 @@ public class InorganicManager : MonoBehaviour
     // Variabel untuk sampah anorganik
     public int inorganicTrashCollected = 0;
     public int totalInorganicTrash = 5;
-    public int inorganicTrashReward = 10;
+    public int inorganicTrashReward = 100;
+    private int currentLevel = 2;
 
     public GameObject tutor1;
     public GameObject selamat;
     public GameObject player;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
+    public TextMeshProUGUI rewardText;
 
     public TextMeshProUGUI inorganicTrashCollectedText;
     public TextMeshProUGUI totalInorganicTrashText;
@@ -62,6 +64,8 @@ public class InorganicManager : MonoBehaviour
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
+            ScoreManager.Instance.AddOrganicScore(currentLevel, inorganicTrashReward); // Menambah skor organik pada level tertentu
+            rewardText.text = "Selamat Anda Mendapatkan Score : " + inorganicTrashReward;
         }
     }
 

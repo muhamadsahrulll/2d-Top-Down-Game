@@ -13,6 +13,7 @@ public class QuizManager2 : MonoBehaviour
     public int quiz2TrashCollected = 0;
     public int totalquiz2Trash = 5;
     public int quiz2TrashReward = 10;
+    private int currentLevel = 4;
 
     public GameObject tutor1;
     public GameObject selamat;
@@ -22,6 +23,7 @@ public class QuizManager2 : MonoBehaviour
 
     public TextMeshProUGUI quiz2TrashCollectedText;
     public TextMeshProUGUI totalquiz2TrashText;
+    public TextMeshProUGUI rewardText;
 
     private void Awake()
     {
@@ -62,6 +64,8 @@ public class QuizManager2 : MonoBehaviour
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
+            ScoreManager.Instance.AddOrganicScore(currentLevel, quiz2TrashReward);
+            rewardText.text = "Selamat Anda Mendapatkan Score :" + quiz2TrashReward;
         }
     }
 
