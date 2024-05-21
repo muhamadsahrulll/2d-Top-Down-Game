@@ -6,6 +6,7 @@ public class WeaponInfo : ScriptableObject
 {
     public GameObject weaponPrefab;
     public float Weaponcooldown;
-    
+    public bool isPurchased;  // Menandakan apakah senjata sudah dibeli
+
 
 }
