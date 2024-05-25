@@ -87,4 +87,50 @@ public class ScoreManager : MonoBehaviour
     {
         totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore;
     }
+
+
+    //FUNGSI BELI SENJATA
+    // Fungsi beli senjata
+    public void BuyWeapon1(WeaponInfo weaponInfo)
+    {
+        weaponInfo.isPurchased = true;
+        SaveWeaponPurchase(weaponInfo, 1);
+    }
+
+    public void BuyWeapon2(WeaponInfo weaponInfo)
+    {
+        if (totalOrganicScore == 100 && !weaponInfo.isPurchased)
+        {
+            weaponInfo.isPurchased = true;
+            SaveWeaponPurchase(weaponInfo, 2);
+        }
+        else
+        {
+            Debug.LogWarning("Skor tidak mencukupi atau senjata sudah dibeli.");
+        }
+    }
+
+    public void BuyWeapon3(WeaponInfo weaponInfo)
+    {
+        if (totalOrganicScore == 200 && !weaponInfo.isPurchased)
+        {
+            weaponInfo.isPurchased = true;
+            SaveWeaponPurchase(weaponInfo, 3);
+        }
+        else
+        {
+            Debug.LogWarning("Skor tidak mencukupi atau senjata sudah dibeli.");
+        }
+    }
+
+    private void SaveWeaponPurchase(WeaponInfo weaponInfo, int weaponIndex)
+    {
+        PlayerPrefs.SetInt(weaponInfo.name + "_Purchased" + weaponIndex, weaponInfo.isPurchased ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadWeaponPurchase(WeaponInfo weaponInfo, int weaponIndex)
+    {
+        weaponInfo.isPurchased = PlayerPrefs.GetInt(weaponInfo.name + "_Purchased" + weaponIndex, 0) == 1;
+    }
 }

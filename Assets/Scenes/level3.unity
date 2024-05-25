@@ -3114,7 +3114,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 315558273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 396721000}
+        m_TargetAssemblyTypeName: home, Assembly-CSharp
+        m_MethodName: loadscene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: mainmenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &315558273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7352,7 +7364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.382791, y: 2.05567, z: -10}
+  m_LocalPosition: {x: 9.529015, y: 2.05563, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42709,6 +42721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eac0dbac807f94297b28625b8fae2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allWeaponInfos: []
 --- !u!1 &2053884768
 GameObject:
   m_ObjectHideFlags: 0
