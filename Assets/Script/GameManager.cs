@@ -25,12 +25,9 @@ public class GameManager : MonoBehaviour
     public GameObject tutor1;
     public GameObject selamat;
     public GameObject player;
+    
 
-    public WeaponInfo weaponInfo1;
-    public WeaponInfo[] allWeaponInfos; // Tambahkan ini di inspector, isi dengan semua ScriptableObject senjata yang ada
-
-
-
+    
 
 
 
@@ -52,21 +49,11 @@ public class GameManager : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
-        weaponInfo1.isPurchased = true;
         
-        // Memuat status pembelian senjata saat game dimulai
-        foreach (WeaponInfo weaponInfo in allWeaponInfos)
-        {
-            //ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 1);
-            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 2);
-            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 3);
-        }
-
     }
 
     private void Update()
     {
-        weaponInfo1.isPurchased = true;
         UpdateUIText();
         SaveGameData();
     }
@@ -135,7 +122,6 @@ public class GameManager : MonoBehaviour
     {
         RestartGame();
     }
-
 
 
 }

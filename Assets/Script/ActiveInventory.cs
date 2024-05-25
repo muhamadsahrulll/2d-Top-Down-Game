@@ -1,12 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ActiveInventory : MonoBehaviour
 {
     private int activeSlotIndexNum = 0;
-    private PlayerControl playerControl;
 
-    public List<WeaponInfo> allWeaponInfos; // Tambahkan daftar semua WeaponInfo
+    private PlayerControl playerControl;
 
     private void Awake()
     {
@@ -15,26 +15,6 @@ public class ActiveInventory : MonoBehaviour
 
     private void Start()
     {
-        // Muat status pembelian senjata
-        foreach (Transform inventorySlot in transform)
-        {
-            InventorySlot slot = inventorySlot.GetComponentInChildren<InventorySlot>();
-            if (slot != null && slot.GetWeaponInfo() != null)
-            {
-                WeaponInfo weaponInfo = slot.GetWeaponInfo();
-                ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 1);
-                ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 2);
-                ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 3);
-            }
-        }
-
-        foreach (WeaponInfo weaponInfo in allWeaponInfos)
-        {
-            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 1);
-            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 2);
-            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 3);
-        }
-
         playerControl.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
     }
 
@@ -58,31 +38,31 @@ public class ActiveInventory : MonoBehaviour
         }
 
         this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+
         ChangeActiveWeapon();
     }
 
     private void ChangeActiveWeapon()
     {
-        if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        if(ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
         }
 
-        InventorySlot slot = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>();
-        if (slot != null)
+        if (!transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>())
         {
-            WeaponInfo weaponInfo = slot.GetWeaponInfo();
-            if (weaponInfo != null && weaponInfo.isPurchased)
-            {
-                GameObject weaponToSpawn = weaponInfo.weaponPrefab;
-                GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
-                newWeapon.transform.parent = ActiveWeapon.Instance.transform;
-                ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
-            }
-            else
-            {
-                ActiveWeapon.Instance.WeaponNull();
-            }
+            ActiveWeapon.Instance.WeaponNull();
+            return;
         }
+
+        GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).
+        GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
+
+        GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
+
+
+        newWeapon.transform.parent = ActiveWeapon.Instance.transform;
+
+        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
 }
