@@ -15,6 +15,9 @@ public class ScoreManager : MonoBehaviour
     // Variabel untuk menyimpan skor organik keseluruhan
     public int totalOrganicScore;
 
+    // Variabel untuk menyimpan referensi ke semua senjata
+    public List<WeaponInfo> allWeaponInfos = new List<WeaponInfo>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     public void Update()
     {
         SaveScores();
+        SaveWeaponPurchases();
     }
 
     // Fungsi untuk menambah skor organik pada level tertentu
@@ -99,7 +103,7 @@ public class ScoreManager : MonoBehaviour
 
     public void BuyWeapon2(WeaponInfo weaponInfo)
     {
-        if (totalOrganicScore == 100 && !weaponInfo.isPurchased)
+        if (totalOrganicScore >= 100 && !weaponInfo.isPurchased)
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 2);
@@ -112,7 +116,7 @@ public class ScoreManager : MonoBehaviour
 
     public void BuyWeapon3(WeaponInfo weaponInfo)
     {
-        if (totalOrganicScore == 200 && !weaponInfo.isPurchased)
+        if (totalOrganicScore >= 200 && !weaponInfo.isPurchased)
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 3);
@@ -133,4 +137,29 @@ public class ScoreManager : MonoBehaviour
     {
         weaponInfo.isPurchased = PlayerPrefs.GetInt(weaponInfo.name + "_Purchased" + weaponIndex, 0) == 1;
     }
+
+    // Fungsi untuk menyimpan status pembelian senjata saat game berjalan
+    private void SaveWeaponPurchases()
+    {
+        // Disini kamu bisa loop untuk menyimpan status pembelian semua senjata yang kamu punya.
+        foreach (WeaponInfo weaponInfo in allWeaponInfos)
+        {
+            SaveWeaponPurchase(weaponInfo, 1);
+            SaveWeaponPurchase(weaponInfo, 2);
+            SaveWeaponPurchase(weaponInfo, 3);
+        }
+    }
+
+    // Fungsi untuk memuat status pembelian senjata saat permainan dimulai
+    private void LoadWeaponPurchases()
+    {
+        // Disini kamu bisa loop untuk memuat status pembelian semua senjata yang kamu punya.
+        foreach (WeaponInfo weaponInfo in allWeaponInfos)
+        {
+            LoadWeaponPurchase(weaponInfo, 1);
+            LoadWeaponPurchase(weaponInfo, 2);
+            LoadWeaponPurchase(weaponInfo, 3);
+        }
+    }
+
 }

@@ -53,7 +53,10 @@ public class GameManager : MonoBehaviour
         UpdateUIText();
         tutor1.SetActive(true);
         weaponInfo1.isPurchased = true;
-        
+
+        // Inisialisasi allWeaponInfos di ScoreManager
+        ScoreManager.Instance.allWeaponInfos = new List<WeaponInfo>(allWeaponInfos);
+
         // Memuat status pembelian senjata saat game dimulai
         foreach (WeaponInfo weaponInfo in allWeaponInfos)
         {

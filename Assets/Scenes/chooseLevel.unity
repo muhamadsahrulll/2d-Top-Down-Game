@@ -8218,6 +8218,10 @@ MonoBehaviour:
   level3OrganicScore: 0
   level4OrganicScore: 0
   totalOrganicScore: 0
+  allWeaponInfos:
+  - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}
+  - {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}
+  - {fileID: 11400000, guid: 5b0b7865449a3a04cb91eb5b83fbb365, type: 2}
 --- !u!114 &2051419823
 MonoBehaviour:
   m_ObjectHideFlags: 0
