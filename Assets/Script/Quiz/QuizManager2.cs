@@ -25,6 +25,9 @@ public class QuizManager2 : MonoBehaviour
     public TextMeshProUGUI totalquiz2TrashText;
     public TextMeshProUGUI rewardText;
 
+    public WeaponInfo weaponInfo1;
+    public WeaponInfo[] allWeaponInfos; // Tambahkan ini di inspector, isi dengan semua ScriptableObject senjata yang ada
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,12 +46,25 @@ public class QuizManager2 : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
+
+        weaponInfo1.isPurchased = true;
+        // Inisialisasi allWeaponInfos di ScoreManager
+        ScoreManager.Instance.allWeaponInfos = new List<WeaponInfo>(allWeaponInfos);
+
+        // Memuat status pembelian senjata saat game dimulai
+        foreach (WeaponInfo weaponInfo in allWeaponInfos)
+        {
+            //ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 1);
+            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 2);
+            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 3);
+        }
     }
 
     private void Update()
     {
         UpdateUIText();
         SaveGameData();
+        weaponInfo1.isPurchased = true;
     }
 
     public void CollectQuizTrash2()

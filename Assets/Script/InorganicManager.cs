@@ -60,7 +60,7 @@ public class InorganicManager : MonoBehaviour
 
     private void Update()
     {
-        weaponInfo1.isPurchased = true;
+        //weaponInfo1.isPurchased = true;
         UpdateUIText();
         SaveGameData();
     }
