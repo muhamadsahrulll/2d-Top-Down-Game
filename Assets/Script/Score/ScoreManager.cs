@@ -5,12 +5,15 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+    
 
     // Variabel untuk menyimpan skor organik tiap level
     public int level1OrganicScore;
     public int level2OrganicScore;
     public int level3OrganicScore;
     public int level4OrganicScore;
+
+    
 
     // Variabel untuk menyimpan skor organik keseluruhan
     public int totalOrganicScore;
@@ -35,6 +38,7 @@ public class ScoreManager : MonoBehaviour
     {
         LoadScores();
         CalculateTotalOrganicScore();
+        LoadWeaponPurchases();
     }
 
     public void Update()
@@ -99,6 +103,9 @@ public class ScoreManager : MonoBehaviour
     {
         weaponInfo.isPurchased = true;
         SaveWeaponPurchase(weaponInfo, 1);
+
+        //tambahkan start corotine IEnumerator notifBerhasil
+        StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
     }
 
     public void BuyWeapon2(WeaponInfo weaponInfo)
@@ -107,10 +114,14 @@ public class ScoreManager : MonoBehaviour
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 2);
+            //tambahkan start corotine IEnumerator notifBerhasil
+            StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
         }
         else
         {
             Debug.LogWarning("Skor tidak mencukupi atau senjata sudah dibeli.");
+            //tambahkan start corotine IEnumerator notifBerhasil
+            StartCoroutine(WeaponShop.Instance.notifGagal2(2.0f));
         }
     }
 
@@ -120,10 +131,13 @@ public class ScoreManager : MonoBehaviour
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 3);
+            //tambahkan start corotine IEnumerator notifBerhasil
+            StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
         }
         else
         {
             Debug.LogWarning("Skor tidak mencukupi atau senjata sudah dibeli.");
+            StartCoroutine(WeaponShop.Instance.notifGagal2(2.0f));
         }
     }
 
@@ -161,5 +175,7 @@ public class ScoreManager : MonoBehaviour
             LoadWeaponPurchase(weaponInfo, 3);
         }
     }
+
+
 
 }

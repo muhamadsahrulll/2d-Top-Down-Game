@@ -3298,6 +3298,11 @@ MonoBehaviour:
   rewardText: {fileID: 973171694}
   inorganicTrashCollectedText: {fileID: 1848324486}
   totalInorganicTrashText: {fileID: 906252497}
+  weaponInfo1: {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}
+  allWeaponInfos:
+  - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}
+  - {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}
+  - {fileID: 11400000, guid: 5b0b7865449a3a04cb91eb5b83fbb365, type: 2}
 --- !u!114 &339919230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3315,6 +3320,10 @@ MonoBehaviour:
   level3OrganicScore: 0
   level4OrganicScore: 0
   totalOrganicScore: 0
+  allWeaponInfos:
+  - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}
+  - {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}
+  - {fileID: 11400000, guid: 5b0b7865449a3a04cb91eb5b83fbb365, type: 2}
 --- !u!1 &376612840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,7 +5385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05660705, y: 8.45488, z: -10}
+  m_LocalPosition: {x: -0.056851838, y: 8.45488, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37793,6 +37802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7eac0dbac807f94297b28625b8fae2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allWeaponInfos: []
 --- !u!1001 &2109756645
 PrefabInstance:
   m_ObjectHideFlags: 0

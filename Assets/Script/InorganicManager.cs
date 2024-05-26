@@ -25,6 +25,9 @@ public class InorganicManager : MonoBehaviour
     public TextMeshProUGUI inorganicTrashCollectedText;
     public TextMeshProUGUI totalInorganicTrashText;
 
+    public WeaponInfo weaponInfo1;
+    public WeaponInfo[] allWeaponInfos; // Tambahkan ini di inspector, isi dengan semua ScriptableObject senjata yang ada
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,10 +46,21 @@ public class InorganicManager : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
+        // Inisialisasi allWeaponInfos di ScoreManager
+        ScoreManager.Instance.allWeaponInfos = new List<WeaponInfo>(allWeaponInfos);
+
+        // Memuat status pembelian senjata saat game dimulai
+        foreach (WeaponInfo weaponInfo in allWeaponInfos)
+        {
+            //ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 1);
+            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 2);
+            ScoreManager.Instance.LoadWeaponPurchase(weaponInfo, 3);
+        }
     }
 
     private void Update()
     {
+        weaponInfo1.isPurchased = true;
         UpdateUIText();
         SaveGameData();
     }
