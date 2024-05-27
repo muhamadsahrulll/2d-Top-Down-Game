@@ -25,6 +25,9 @@ public class QuizManager1 : MonoBehaviour
     public TextMeshProUGUI totalquizTrashText;
     public TextMeshProUGUI rewardText;
 
+    public GameObject jawabanBenar;
+    public GameObject jawabanSalah;
+
     public WeaponInfo weaponInfo1;
     public WeaponInfo[] allWeaponInfos; // Tambahkan ini di inspector, isi dengan semua ScriptableObject senjata yang ada
 
@@ -118,5 +121,18 @@ public class QuizManager1 : MonoBehaviour
     public void Restartgame()
     {
         RestartGame();
+    }
+    public IEnumerator jawabanB(float seconds)
+    {
+        jawabanBenar.gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        jawabanBenar.gameObject.SetActive(false);
+    }
+
+    public IEnumerator jawabanS(float seconds)
+    {
+        jawabanSalah.gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        jawabanSalah.gameObject.SetActive(false);
     }
 }
