@@ -77,4 +77,5 @@ public class mainmenu : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         tidakcukup.gameObject.SetActive(false);
     }
+    
 }

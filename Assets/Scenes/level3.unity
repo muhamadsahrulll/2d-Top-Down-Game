@@ -3312,6 +3312,7 @@ GameObject:
   - component: {fileID: 339919229}
   - component: {fileID: 339919228}
   - component: {fileID: 339919230}
+  - component: {fileID: 339919231}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3402,6 +3403,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}
   - {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}
   - {fileID: 11400000, guid: 5b0b7865449a3a04cb91eb5b83fbb365, type: 2}
+--- !u!114 &339919231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339919225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0861bc109f89d41899a55b225cb109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &361063068
 GameObject:
   m_ObjectHideFlags: 0
@@ -9300,8 +9313,6 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 543631290}
   playerHealth: {fileID: 285849326}
-  jawabanBenar: {fileID: 1010899082}
-  jawabanSalah: {fileID: 995936461}
 --- !u!61 &985741375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18349,6 +18360,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7189863679699986942, guid: 9bd6045201dd6ed408b1e161f163d48d, type: 3}
   m_PrefabInstance: {fileID: 1206771474}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1207770612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 201289206250419165, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419166, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
 --- !u!1 &1221521897
 GameObject:
   m_ObjectHideFlags: 0
@@ -40240,8 +40312,6 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 1973193718}
   playerHealth: {fileID: 285849326}
-  jawabanBenar: {fileID: 1010899082}
-  jawabanSalah: {fileID: 995936461}
 --- !u!61 &1661206135
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40868,8 +40938,6 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 889318382}
   playerHealth: {fileID: 285849326}
-  jawabanBenar: {fileID: 1010899082}
-  jawabanSalah: {fileID: 995936461}
 --- !u!1001 &1803057096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43986,8 +44054,6 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 1979096160}
   playerHealth: {fileID: 285849326}
-  jawabanBenar: {fileID: 1010899082}
-  jawabanSalah: {fileID: 995936461}
 --- !u!1 &3538184497143900628
 GameObject:
   m_ObjectHideFlags: 0
