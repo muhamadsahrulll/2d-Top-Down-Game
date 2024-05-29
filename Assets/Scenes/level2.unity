@@ -3735,7 +3735,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1447896067}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: soundSettings
         m_Mode: 6
@@ -4368,7 +4368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 100
+  m_MovementRange: 150
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
@@ -6030,7 +6030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.056851838, y: 8.45488, z: -10}
+  m_LocalPosition: {x: -0.056738216, y: 8.45488, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20957,6 +20957,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+--- !u!114 &1447896067 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 566119041507627464, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+  m_PrefabInstance: {fileID: 1447896066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fff9a1b4299ab6489ffd48073ad6870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450051119
 GameObject:
   m_ObjectHideFlags: 0
@@ -38870,7 +38881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1447896067}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: soundSettings
         m_Mode: 6
