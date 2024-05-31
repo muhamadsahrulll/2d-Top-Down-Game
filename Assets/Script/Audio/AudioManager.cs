@@ -7,6 +7,14 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public AudioSource audioSound;
+    public AudioClip buttonBakteri;
+    public AudioClip buttonKuman;
+    public AudioClip buttonOrganik;
+    public AudioClip buttonAnorganik;
+    public AudioClip sfxBenar;
+    public AudioClip sfxSalah;
+    public AudioClip sfxSelamat;
+
 
 
     private void Awake()
@@ -49,5 +57,29 @@ public class AudioManager : MonoBehaviour
         }
 
         StartCoroutine(CheckSound());
+    }
+
+    public void PlayButtonBakteri()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(buttonBakteri);
+    }
+
+    public void PlayButtonKuman()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(buttonKuman);
+    }
+
+    public void PlayButtonOrganik()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(buttonOrganik);
+    }
+
+    public void PlayButtonAnorganik()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(buttonAnorganik);
     }
 }
