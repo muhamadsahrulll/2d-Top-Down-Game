@@ -153,6 +153,20 @@ public class GameManager : MonoBehaviour
         Debug.Log("Keluar game dari level 1");
     }
 
+    private void OnApplicationQuit()
+    {
+        ResetProgress();
+    }
+
+   
+
+    private void ResetProgress()
+    {
+        PlayerPrefs.SetInt("OrganicTrashCollected", 0);
+        PlayerPrefs.SetInt("OrganicTrashReward", 0);
+        Debug.Log("Progress direset karena aplikasi ditutup atau dijeda.");
+    }
+
 
 
 }

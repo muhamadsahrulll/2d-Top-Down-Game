@@ -154,4 +154,16 @@ public class QuizManager2 : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         jawabanSalah.gameObject.SetActive(false);
     }
+
+    private void OnApplicationQuit()
+    {
+        ResetProgress();
+    }
+
+    private void ResetProgress()
+    {
+        PlayerPrefs.SetInt("QuizTrashCollected2", 0);
+        PlayerPrefs.SetInt("QuizTrashReward2", 0);
+        Debug.Log("Progress direset karena aplikasi ditutup atau dijeda.");
+    }
 }

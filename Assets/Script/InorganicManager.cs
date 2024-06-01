@@ -135,4 +135,17 @@ public class InorganicManager : MonoBehaviour
         // Tambahkan kode untuk keluar dari game
         Debug.Log("Keluar game dari level 2");
     }
+
+    private void OnApplicationQuit()
+    {
+        ResetProgress();
+    }
+
+
+    private void ResetProgress()
+    {
+        PlayerPrefs.SetInt("InorganicTrashCollected", 0);
+        PlayerPrefs.SetInt("InorganicTrashReward", 0);
+        Debug.Log("Progress direset karena aplikasi ditutup atau dijeda.");
+    }
 }
