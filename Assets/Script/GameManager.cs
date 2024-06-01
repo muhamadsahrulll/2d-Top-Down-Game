@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI rewardText;
     public GameObject tutor1;
     public GameObject selamat;
+    public GameObject Kalah;
     public GameObject player;
 
     public WeaponInfo weaponInfo1;
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, organicTrashReward); // Menambah skor organik pada level tertentu
             rewardText.text = "Selamat Anda Mendapatkan Score : " + organicTrashReward;
+            AudioManager.instance.PlaySfxSelamat();
             // Instansiasi prefab confetti
             //Instantiate(confettiPrefab1, new Vector3(-1004.92804f, -462.335999f, -0.128365248f), Quaternion.identity);
             // Instansiasi prefab confetti
@@ -97,9 +99,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    public void PlayerDied()
+    {
+        // Tambahkan kode untuk menampilkan image dari canvas
+        Debug.Log("Player mati di level 1");
+        Kalah.SetActive(true); // Aktifkan image game over
+    }
 
-   
 
     public void LoadGameData()
     {
@@ -137,6 +143,14 @@ public class GameManager : MonoBehaviour
     public void Restartgame()
     {
         RestartGame();
+    }
+
+    public void Keluargame()
+    {
+        PlayerPrefs.SetInt("OrganicTrashCollected", 0);
+        PlayerPrefs.SetInt("OrganicTrashReward", 0);
+        // Tambahkan kode untuk keluar dari game
+        Debug.Log("Keluar game dari level 1");
     }
 
 

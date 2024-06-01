@@ -17,6 +17,7 @@ public class QuizManager1 : MonoBehaviour
 
     public GameObject tutor1;
     public GameObject selamat;
+    public GameObject Kalah;
     public GameObject player;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
@@ -84,6 +85,7 @@ public class QuizManager1 : MonoBehaviour
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, quizTrashReward);
             rewardText.text = "Selamat Anda Mendapatkan Score :" + quizTrashReward;
+            AudioManager.instance.PlaySfxSelamat();
         }
     }
 
@@ -100,8 +102,8 @@ public class QuizManager1 : MonoBehaviour
 
     private void UpdateUIText()
     {
-        quizTrashCollectedText.text = "Quiz Trash Collected: " + quizTrashCollected + "/" + totalquizTrash;
-        totalquizTrashText.text = "Total Quiz Trash: " + totalquizTrash;
+        quizTrashCollectedText.text = "Sampah Terkumpul : " + quizTrashCollected + "/" + totalquizTrash;
+        totalquizTrashText.text = "Total Sampah : " + totalquizTrash;
     }
 
     private void RestartGame()
@@ -121,6 +123,21 @@ public class QuizManager1 : MonoBehaviour
     public void Restartgame()
     {
         RestartGame();
+    }
+
+    public void PlayerDied()
+    {
+        // Tambahkan kode untuk menampilkan image dari canvas
+        Debug.Log("Player mati di level 3");
+        Kalah.SetActive(true); // Aktifkan image game over
+    }
+
+    public void Keluargame()
+    {
+        PlayerPrefs.SetInt("QuizTrashCollected1", 0);
+        PlayerPrefs.SetInt("QuizTrashReward1", 0);
+        // Tambahkan kode untuk keluar dari game
+        Debug.Log("Keluar game dari level 3");
     }
     public IEnumerator jawabanB(float seconds)
     {

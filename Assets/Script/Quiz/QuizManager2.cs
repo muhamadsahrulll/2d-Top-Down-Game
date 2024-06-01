@@ -17,6 +17,7 @@ public class QuizManager2 : MonoBehaviour
 
     public GameObject tutor1;
     public GameObject selamat;
+    public GameObject Kalah;
     public GameObject player;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
@@ -24,6 +25,9 @@ public class QuizManager2 : MonoBehaviour
     public TextMeshProUGUI quiz2TrashCollectedText;
     public TextMeshProUGUI totalquiz2TrashText;
     public TextMeshProUGUI rewardText;
+
+    public GameObject jawabanBenar;
+    public GameObject jawabanSalah;
 
     public WeaponInfo weaponInfo1;
     public WeaponInfo[] allWeaponInfos; // Tambahkan ini di inspector, isi dengan semua ScriptableObject senjata yang ada
@@ -82,6 +86,7 @@ public class QuizManager2 : MonoBehaviour
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, quiz2TrashReward);
             rewardText.text = "Selamat Anda Mendapatkan Score :" + quiz2TrashReward;
+            AudioManager.instance.PlaySfxSelamat();
         }
     }
 
@@ -98,8 +103,8 @@ public class QuizManager2 : MonoBehaviour
 
     private void UpdateUIText()
     {
-        quiz2TrashCollectedText.text = "Quiz Trash Collected: " + quiz2TrashCollected + "/" + totalquiz2Trash;
-        totalquiz2TrashText.text = "Total Quiz Trash: " + totalquiz2Trash;
+        quiz2TrashCollectedText.text = "Sampah Terkumpul : " + quiz2TrashCollected + "/" + totalquiz2Trash;
+        totalquiz2TrashText.text = "Total Sampah: " + totalquiz2Trash;
     }
 
     private void RestartGame()
@@ -119,5 +124,34 @@ public class QuizManager2 : MonoBehaviour
     public void Restartgame()
     {
         RestartGame();
+    }
+
+    public void PlayerDied()
+    {
+        // Tambahkan kode untuk menampilkan image dari canvas
+        Debug.Log("Player mati di level 4");
+        Kalah.SetActive(true); // Aktifkan image game over
+    }
+
+    public void Keluargame()
+    {
+        PlayerPrefs.SetInt("QuizTrashCollected2", 0);
+        PlayerPrefs.SetInt("QuizTrashReward2", 0);
+        // Tambahkan kode untuk keluar dari game
+        Debug.Log("Keluar game dari level 4");
+    }
+
+    public IEnumerator jawabanB(float seconds)
+    {
+        jawabanBenar.gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        jawabanBenar.gameObject.SetActive(false);
+    }
+
+    public IEnumerator jawabanS(float seconds)
+    {
+        jawabanSalah.gameObject.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        jawabanSalah.gameObject.SetActive(false);
     }
 }

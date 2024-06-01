@@ -82,4 +82,22 @@ public class AudioManager : MonoBehaviour
         if (GameData.InstanceData.onSound)
             audioSound.PlayOneShot(buttonAnorganik);
     }
+
+    public void PlaySfxBenar()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(sfxBenar);
+    }
+
+    public void PlaySfxSalah()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(sfxSalah);
+    }
+
+    public void PlaySfxSelamat()
+    {
+        if (GameData.InstanceData.onSound)
+            audioSound.PlayOneShot(sfxSelamat);
+    }
 }

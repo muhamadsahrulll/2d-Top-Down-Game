@@ -31,7 +31,7 @@ public class WeaponShop : MonoBehaviour
     private void Update()
     {
         // Update text for total organic score
-        totalSkor.text = "Total Score: " + ScoreManager.Instance.totalOrganicScore.ToString();
+        totalSkor.text = "Total Koin: " + ScoreManager.Instance.totalOrganicScore.ToString();
     }
     public void BuyWeapon1()
     {

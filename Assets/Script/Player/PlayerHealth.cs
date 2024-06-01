@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -45,7 +46,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player mati");
-            //Destroy(gameObject);
+            HandlePlayerDeath();
+            Destroy(gameObject);
         }
         StartCoroutine(DamageRecoveryRoutine());
 
@@ -59,5 +61,28 @@ public class PlayerHealth : MonoBehaviour
     public int GetCurrentHealth()
     {
         return currentHealth;
+    }
+
+    private void HandlePlayerDeath()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        switch (sceneName)
+        {
+            case "level1":
+                GameManager.Instance?.PlayerDied();
+                break;
+            case "level2":
+                InorganicManager.Instance?.PlayerDied();
+                break;
+            case "level3":
+                QuizManager1.Instance?.PlayerDied();
+                break;
+            case "level4":
+                QuizManager2.Instance?.PlayerDied();
+                break;
+            default:
+                Debug.LogWarning("Scene not recognized for player death handling.");
+                break;
+        }
     }
 }

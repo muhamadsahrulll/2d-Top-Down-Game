@@ -17,6 +17,7 @@ public class InorganicManager : MonoBehaviour
 
     public GameObject tutor1;
     public GameObject selamat;
+    public GameObject Kalah;
     public GameObject player;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
@@ -80,7 +81,15 @@ public class InorganicManager : MonoBehaviour
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, inorganicTrashReward); // Menambah skor organik pada level tertentu
             rewardText.text = "Selamat Anda Mendapatkan Score : " + inorganicTrashReward;
+            AudioManager.instance.PlaySfxSelamat();
         }
+    }
+
+    public void PlayerDied()
+    {
+        // Tambahkan kode untuk menampilkan image dari canvas
+        Debug.Log("Player mati di level 2");
+        Kalah.SetActive(true); // Aktifkan image game over
     }
 
     public void LoadGameData()
@@ -96,8 +105,8 @@ public class InorganicManager : MonoBehaviour
 
     private void UpdateUIText()
     {
-        inorganicTrashCollectedText.text = "Inorganic Trash Collected: " + inorganicTrashCollected + "/" + totalInorganicTrash;
-        totalInorganicTrashText.text = "Total Inorganic Trash: " + totalInorganicTrash;
+        inorganicTrashCollectedText.text = "Sampah Terkumpul : " + inorganicTrashCollected + "/" + totalInorganicTrash;
+        totalInorganicTrashText.text = "Total Sampah Anorganik : " + totalInorganicTrash;
     }
 
     private void RestartGame()
@@ -119,4 +128,11 @@ public class InorganicManager : MonoBehaviour
         RestartGame();
     }
 
+    public void Keluargame()
+    {
+        PlayerPrefs.SetInt("InorganicTrashCollected", 0);
+        PlayerPrefs.SetInt("InorganicTrashReward", 0);
+        // Tambahkan kode untuk keluar dari game
+        Debug.Log("Keluar game dari level 2");
+    }
 }
