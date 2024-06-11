@@ -12,8 +12,9 @@ public class ScoreManager : MonoBehaviour
     public int level2OrganicScore;
     public int level3OrganicScore;
     public int level4OrganicScore;
+    public int level5OrganicScore;
 
-    
+
 
     // Variabel untuk menyimpan skor organik keseluruhan
     public int totalOrganicScore;
@@ -64,6 +65,9 @@ public class ScoreManager : MonoBehaviour
             case 4:
                 level4OrganicScore += score;
                 break;
+            case 5:
+                level5OrganicScore += score; // Tambahkan kasus untuk level 5
+                break;
             default:
                 Debug.LogWarning("Level tidak valid.");
                 break;
@@ -72,13 +76,13 @@ public class ScoreManager : MonoBehaviour
         CalculateTotalOrganicScore();
     }
 
-    // Fungsi untuk menyimpan skor organik pada PlayerPrefs
     private void SaveScores()
     {
         PlayerPrefs.SetInt("Level1OrganicScore", level1OrganicScore);
         PlayerPrefs.SetInt("Level2OrganicScore", level2OrganicScore);
         PlayerPrefs.SetInt("Level3OrganicScore", level3OrganicScore);
         PlayerPrefs.SetInt("Level4OrganicScore", level4OrganicScore);
+        PlayerPrefs.SetInt("Level5OrganicScore", level5OrganicScore); // Tambahkan penyimpanan untuk level 5
     }
 
     // Fungsi untuk memuat skor organik dari PlayerPrefs
@@ -88,13 +92,15 @@ public class ScoreManager : MonoBehaviour
         level2OrganicScore = PlayerPrefs.GetInt("Level2OrganicScore");
         level3OrganicScore = PlayerPrefs.GetInt("Level3OrganicScore");
         level4OrganicScore = PlayerPrefs.GetInt("Level4OrganicScore");
+        level5OrganicScore = PlayerPrefs.GetInt("Level5OrganicScore"); // Tambahkan pemuatan untuk level 5
     }
 
     // Fungsi untuk menghitung total skor organik keseluruhan
     private void CalculateTotalOrganicScore()
     {
-        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore;
+        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore + level5OrganicScore; // Tambahkan level 5
     }
+    
 
 
     //FUNGSI BELI SENJATA

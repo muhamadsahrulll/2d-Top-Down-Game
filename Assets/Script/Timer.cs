@@ -45,6 +45,11 @@ public class Timer : MonoBehaviour
         player.gameObject.SetActive(false);
     }
 
+    public void Mulai()
+    {
+        timerIsRunning = true;
+    }
+
     public void ResumeTimer()
     {
         timerIsRunning = true;
