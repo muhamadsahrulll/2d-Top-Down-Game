@@ -11349,9 +11349,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "sadako team\n\nSharfina Febbi Handayani, M.Kom\n(DOSEN PEMBIMBING)\n\nMUHAMAD
-    SAHRUL SYABANI (PROGRAMMER)\n\nPutri Willa Andini (UI/UX)\n\nRohadatul \u2018Aisyi
-    Fatikha  \n(ASSETS MANAGER)"
+  m_text: 'sadako team
+
+
+
+    MUHAMAD SAHRUL SYABANI (PROGRAMMER)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -14170,6 +14172,7 @@ MonoBehaviour:
   level2OrganicScore: 0
   level3OrganicScore: 0
   level4OrganicScore: 0
+  level5OrganicScore: 0
   totalOrganicScore: 0
   allWeaponInfos:
   - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}

@@ -11,9 +11,9 @@ public class RecycleTrash : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                if (trashCategory.categoryName == "Plastik" || trashCategory.categoryName == "Gunting" || trashCategory.categoryName == "Tali")
+                if (trashCategory.categoryName == "Plastik" || trashCategory.categoryName == "Gunting" || trashCategory.categoryName == "Tali" || trashCategory.categoryName == "BotolDR" || trashCategory.categoryName == "Bunga")
                 {
-                    RecycleManager.Instance.CollectRecycleTrash(trashCategory.categoryName);
+                    RecycleManager2.Instance.CollectRecycleTrash(trashCategory.categoryName);
                 }
 
                 Destroy(gameObject);
