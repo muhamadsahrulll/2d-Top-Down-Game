@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     public int level3OrganicScore;
     public int level4OrganicScore;
     public int level5OrganicScore;
+    public int level6OrganicScore;
 
 
 

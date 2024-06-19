@@ -13,7 +13,16 @@ public class RecycleTrash : MonoBehaviour
             {
                 if (trashCategory.categoryName == "Plastik" || trashCategory.categoryName == "Gunting" || trashCategory.categoryName == "Tali" || trashCategory.categoryName == "BotolDR" || trashCategory.categoryName == "Bunga")
                 {
-                    RecycleManager2.Instance.CollectRecycleTrash(trashCategory.categoryName);
+                    // Panggil CollectRecycleTrash pada kedua instance RecycleManager dan RecycleManager2 jika mereka ada
+                    if (RecycleManager.Instance != null)
+                    {
+                        RecycleManager.Instance.CollectRecycleTrash(trashCategory.categoryName);
+                    }
+
+                    if (RecycleManager2.Instance != null)
+                    {
+                        RecycleManager2.Instance.CollectRecycleTrash(trashCategory.categoryName);
+                    }
                 }
 
                 Destroy(gameObject);
