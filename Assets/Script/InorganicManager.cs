@@ -89,6 +89,8 @@ public class InorganicManager : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 2");
+        ResetProgress();
+        Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }
 
@@ -132,6 +134,7 @@ public class InorganicManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("InorganicTrashCollected", 0);
         PlayerPrefs.SetInt("InorganicTrashReward", 0);
+        ResetProgress();
         // Tambahkan kode untuk keluar dari game
         Debug.Log("Keluar game dari level 2");
     }

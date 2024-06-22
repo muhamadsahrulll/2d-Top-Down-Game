@@ -6,21 +6,17 @@ public class KainPel : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
-
     [SerializeField] private float swordAttackCD = .5f;
 
     private Transform weaponCollider;
-
     private Animator anim;
-
-
     private GameObject slashAnim;
+
+    public int DamageAmount { get; private set; } = 40;
 
     private void Awake()
     {
-
         anim = GetComponent<Animator>();
-
     }
 
     private void Start()
@@ -29,12 +25,11 @@ public class KainPel : MonoBehaviour, IWeapon
         slashAnimSpawnPoint = GameObject.Find("SlashSpawnPoint").transform;
     }
 
-
-
     private void Update()
     {
         MouseFollowWithOffset();
     }
+
     public void Attack()
     {
         ActiveWeapon.Instance.ToggleIsAttacking(true);
@@ -56,22 +51,12 @@ public class KainPel : MonoBehaviour, IWeapon
         ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
-
-
     public void SwingUpFlipAnim()
     {
         if (slashAnim != null)
         {
             slashAnim.transform.rotation = Quaternion.Euler(-180, 0, 0);
-
-            if (PlayerController.Instance.FacingLeft)
-            {
-                slashAnim.GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else
-            {
-                slashAnim.GetComponent<SpriteRenderer>().flipX = false; // Atau biarkan seperti ini sesuai kebutuhan
-            }
+            slashAnim.GetComponent<SpriteRenderer>().flipX = PlayerController.Instance.FacingLeft;
         }
     }
 
@@ -80,31 +65,20 @@ public class KainPel : MonoBehaviour, IWeapon
         if (slashAnim != null)
         {
             slashAnim.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-            if (PlayerController.Instance.FacingLeft)
-            {
-                slashAnim.GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else
-            {
-                slashAnim.GetComponent<SpriteRenderer>().flipX = false; // Atau biarkan seperti ini sesuai kebutuhan
-            }
+            slashAnim.GetComponent<SpriteRenderer>().flipX = PlayerController.Instance.FacingLeft;
         }
     }
 
     private void MouseFollowWithOffset()
     {
-        float angle = 0f; // Default angle
-
+        float angle = 0f;
         if (PlayerController.Instance.sprite.flipX)
         {
-            // Player menghadap kiri (flipX true)
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
-            // Player menghadap kanan (flipX false)
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }

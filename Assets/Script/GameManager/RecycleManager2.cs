@@ -43,7 +43,7 @@ public class RecycleManager2 : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -121,6 +121,7 @@ public class RecycleManager2 : MonoBehaviour
     public void PlayerDied()
     {
         Debug.Log("Player mati di level 2");
+        ResetProgress();
         Kalah.SetActive(true);
     }
 
@@ -169,6 +170,7 @@ public class RecycleManager2 : MonoBehaviour
         PlayerPrefs.SetInt("SampahGunting", 0);
         PlayerPrefs.SetInt("SampahTali", 0);
         PlayerPrefs.SetInt("RecycleTrashReward", 0);
+        ResetProgress();
         Debug.Log("Keluar game dari level 2");
     }
 

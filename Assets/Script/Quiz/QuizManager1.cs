@@ -129,6 +129,8 @@ public class QuizManager1 : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 3");
+        ResetProgress();
+        Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }
 
@@ -137,6 +139,7 @@ public class QuizManager1 : MonoBehaviour
         PlayerPrefs.SetInt("QuizTrashCollected1", 0);
         PlayerPrefs.SetInt("QuizTrashReward1", 0);
         // Tambahkan kode untuk keluar dari game
+        ResetProgress();
         Debug.Log("Keluar game dari level 3");
     }
     public IEnumerator jawabanB(float seconds)

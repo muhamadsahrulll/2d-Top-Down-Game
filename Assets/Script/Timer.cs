@@ -6,16 +6,39 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
     [SerializeField] public float timeRemaining = 60f;
     private bool timerIsRunning = false;
     public TextMeshProUGUI timerTxt;
     public GameObject player;
     public GameObject gameover;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            // DontDestroyOnLoad(gameObject); // Uncomment if you need this
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         // Mulai timer saat game dimulai
+        //timerIsRunning = true;
+    }
+
+    public void StartTimer()
+    {
         timerIsRunning = true;
+    }
+
+    public void StopTimer()
+    {
+        timerIsRunning = false;
     }
 
     private void Update()

@@ -1,4 +1,5 @@
-interface IWeapon
+public interface IWeapon
 {
-    public void Attack();
+    void Attack();
+    int DamageAmount { get; }
 }

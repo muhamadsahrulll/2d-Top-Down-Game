@@ -69,6 +69,9 @@ public class ScoreManager : MonoBehaviour
             case 5:
                 level5OrganicScore += score; // Tambahkan kasus untuk level 5
                 break;
+            case 6:
+                level6OrganicScore += score; //level6
+                break;
             default:
                 Debug.LogWarning("Level tidak valid.");
                 break;
@@ -84,6 +87,7 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("Level3OrganicScore", level3OrganicScore);
         PlayerPrefs.SetInt("Level4OrganicScore", level4OrganicScore);
         PlayerPrefs.SetInt("Level5OrganicScore", level5OrganicScore); // Tambahkan penyimpanan untuk level 5
+        PlayerPrefs.SetInt("Level6OrganicScore", level6OrganicScore); //level 6
     }
 
     // Fungsi untuk memuat skor organik dari PlayerPrefs
@@ -94,12 +98,13 @@ public class ScoreManager : MonoBehaviour
         level3OrganicScore = PlayerPrefs.GetInt("Level3OrganicScore");
         level4OrganicScore = PlayerPrefs.GetInt("Level4OrganicScore");
         level5OrganicScore = PlayerPrefs.GetInt("Level5OrganicScore"); // Tambahkan pemuatan untuk level 5
+        level6OrganicScore = PlayerPrefs.GetInt("Level6OrganicScore");
     }
 
     // Fungsi untuk menghitung total skor organik keseluruhan
     private void CalculateTotalOrganicScore()
     {
-        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore + level5OrganicScore; // Tambahkan level 5
+        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore + level5OrganicScore + level6OrganicScore; // Tambahkan level 5
     }
     
 

@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 1");
+        ResetProgress();
+        Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }
 
@@ -149,6 +151,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("OrganicTrashCollected", 0);
         PlayerPrefs.SetInt("OrganicTrashReward", 0);
+        ResetProgress();
         // Tambahkan kode untuk keluar dari game
         Debug.Log("Keluar game dari level 1");
     }

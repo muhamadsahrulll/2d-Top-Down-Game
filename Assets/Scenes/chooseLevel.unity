@@ -2140,7 +2140,7 @@ GameObject:
   - component: {fileID: 718385881}
   - component: {fileID: 718385880}
   m_Layer: 5
-  m_Name: score1
+  m_Name: score6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9094,6 +9094,7 @@ MonoBehaviour:
   level3ScoreText: {fileID: 376298014}
   level4ScoreText: {fileID: 787509277}
   level5ScoreText: {fileID: 2116663869}
+  level6ScoreText: {fileID: 718385880}
   totalOrganicScoreText: {fileID: 815169169}
   tidakcukup: {fileID: 544286573}
 --- !u!114 &2051419822
@@ -9113,6 +9114,7 @@ MonoBehaviour:
   level3OrganicScore: 0
   level4OrganicScore: 0
   level5OrganicScore: 0
+  level6OrganicScore: 0
   totalOrganicScore: 0
   allWeaponInfos:
   - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}

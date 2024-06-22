@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     {
         canTakeDamage = false;
         currentHealth -= damageAmount;
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
             Debug.Log("Player mati");
             HandlePlayerDeath();
@@ -79,6 +79,12 @@ public class PlayerHealth : MonoBehaviour
                 break;
             case "level4":
                 QuizManager2.Instance?.PlayerDied();
+                break;
+            case "level5":
+                RecycleManager.Instance?.PlayerDied();
+                break;
+            case "level6":
+                RecycleManager2.Instance?.PlayerDied();
                 break;
             default:
                 Debug.LogWarning("Scene not recognized for player death handling.");

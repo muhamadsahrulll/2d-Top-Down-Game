@@ -12,6 +12,7 @@ public class mainmenu : MonoBehaviour
     public TextMeshProUGUI level3ScoreText;
     public TextMeshProUGUI level4ScoreText;
     public TextMeshProUGUI level5ScoreText;
+    public TextMeshProUGUI level6ScoreText;
     public TextMeshProUGUI totalOrganicScoreText;
     public GameObject tidakcukup;
 
@@ -24,6 +25,7 @@ public class mainmenu : MonoBehaviour
         level3ScoreText.text = "Score: " + ScoreManager.Instance.level3OrganicScore.ToString();
         level4ScoreText.text = "Score: " + ScoreManager.Instance.level4OrganicScore.ToString();
         level5ScoreText.text = "Score: " + ScoreManager.Instance.level5OrganicScore.ToString();
+        level6ScoreText.text = "Score: " + ScoreManager.Instance.level6OrganicScore.ToString();
 
         // Update text for total organic score
         totalOrganicScoreText.text = "Total Score: " + ScoreManager.Instance.totalOrganicScore.ToString();
@@ -65,6 +67,8 @@ public class mainmenu : MonoBehaviour
                 return ScoreManager.Instance.totalOrganicScore >= 3 * requiredScore;
             case "level5":
                 return ScoreManager.Instance.totalOrganicScore >= 4 * requiredScore; // Tambahkan pengecekan untuk level 5
+            case "level6":
+                return ScoreManager.Instance.totalOrganicScore >= 5 * requiredScore;
             default:
                 Debug.LogWarning("Nama level tidak valid.");
                 return false;
