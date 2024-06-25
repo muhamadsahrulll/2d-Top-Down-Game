@@ -121,7 +121,12 @@ public class RecycleManager : MonoBehaviour
     public void PlayerDied()
     {
         Debug.Log("Player mati di level");
-        ResetProgress();
+        PlayerPrefs.SetInt("RecycleTrashCollected", 0);
+        PlayerPrefs.SetInt("SampahPlastik", 0);
+        PlayerPrefs.SetInt("SampahGunting", 0);
+        PlayerPrefs.SetInt("SampahTali", 0);
+        PlayerPrefs.SetInt("RecycleTrashReward", 0);
+        //ResetProgress();
         Timer.Instance.StopTimer();
         Kalah.SetActive(true);
     }

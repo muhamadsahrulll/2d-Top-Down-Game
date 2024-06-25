@@ -15,24 +15,31 @@ public class AudioManager : MonoBehaviour
     public AudioClip sfxSalah;
     public AudioClip sfxSelamat;
 
-
+    private Queue<AudioClip> audioQueue = new Queue<AudioClip>();
+    private bool isPlaying = false;
 
     private void Awake()
     {
         if (instance != null && instance != this)
-            Destroy(this);
+        {
+            Destroy(gameObject);
+        }
         else
+        {
             instance = this;
+        }
 
         audioSound = GetComponent<AudioSource>();
+        if (audioSound == null)
+        {
+            Debug.LogError("AudioSource component not found!");
+        }
     }
 
     private void Start()
     {
         StartCoroutine(CheckSound());
     }
-
-
 
     IEnumerator CheckSound()
     {
@@ -59,45 +66,74 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(CheckSound());
     }
 
-    public void PlayButtonBakteri()
+    private IEnumerator PlayQueuedSounds()
+    {
+        while (audioQueue.Count > 0)
+        {
+            AudioClip clip = audioQueue.Dequeue();
+            audioSound.PlayOneShot(clip);
+            Debug.Log($"Playing sound: {clip.name}");
+            yield return new WaitForSeconds(clip.length);
+        }
+        isPlaying = false;
+    }
+
+    private void PlaySound(AudioClip clip)
     {
         if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(buttonBakteri);
+        {
+            if (!isPlaying)
+            {
+                audioQueue.Enqueue(clip);
+                isPlaying = true;
+                StartCoroutine(PlayQueuedSounds());
+            }
+            else if (audioQueue.Count == 0)
+            {
+                audioQueue.Enqueue(clip);
+            }
+        }
+    }
+
+    public void PlayButtonBakteri()
+    {
+        PlaySound(buttonBakteri);
+        Debug.Log("Button Bakteri clicked");
     }
 
     public void PlayButtonKuman()
     {
-        if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(buttonKuman);
+        PlaySound(buttonKuman);
+        Debug.Log("Button Kuman clicked");
     }
 
     public void PlayButtonOrganik()
     {
-        if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(buttonOrganik);
+        PlaySound(buttonOrganik);
+        Debug.Log("Button Organik clicked");
     }
 
     public void PlayButtonAnorganik()
     {
-        if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(buttonAnorganik);
+        PlaySound(buttonAnorganik);
+        Debug.Log("Button Anorganik clicked");
     }
 
     public void PlaySfxBenar()
     {
-        if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(sfxBenar);
+        PlaySound(sfxBenar);
+        Debug.Log("SFX Benar played");
     }
 
     public void PlaySfxSalah()
     {
-        if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(sfxSalah);
+        PlaySound(sfxSalah);
+        Debug.Log("SFX Salah played");
     }
 
     public void PlaySfxSelamat()
     {
-        if (GameData.InstanceData.onSound)
-            audioSound.PlayOneShot(sfxSelamat);
+        PlaySound(sfxSelamat);
+        Debug.Log("SFX Selamat played");
     }
 }

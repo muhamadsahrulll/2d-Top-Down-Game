@@ -246,11 +246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3334960155996822636, guid: 17ed9571fad2c1c48b256a5febd84a06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.89
+      value: -7.43
       objectReference: {fileID: 0}
     - target: {fileID: 3334960155996822636, guid: 17ed9571fad2c1c48b256a5febd84a06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0104604
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 3334960155996822636, guid: 17ed9571fad2c1c48b256a5febd84a06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2509,7 +2509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &240859611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7557,7 +7557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.653511, y: 1.24825, z: -10}
+  m_LocalPosition: {x: -11.761876, y: 1.2481899, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16879,7 +16879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1191714718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16955,6 +16955,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: chooselevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 339919227}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1191714720
@@ -20552,6 +20564,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: mainmenu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 339919227}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1274394874
@@ -38635,11 +38659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3334960155996822636, guid: 17ed9571fad2c1c48b256a5febd84a06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.161883
+      value: -8.41
       objectReference: {fileID: 0}
     - target: {fileID: 3334960155996822636, guid: 17ed9571fad2c1c48b256a5febd84a06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0104604
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3334960155996822636, guid: 17ed9571fad2c1c48b256a5febd84a06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39967,10 +39991,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2474344315374853047, guid: 7e1e294c029495e4eabe974eb2dc9982, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1e294c029495e4eabe974eb2dc9982, type: 3}
+--- !u!1 &2474344316316969128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2474344315374853034, guid: 7e1e294c029495e4eabe974eb2dc9982, type: 3}
+  m_PrefabInstance: {fileID: 2474344316316969127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2474344316316969129
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474344316316969128}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.027855158, y: -0.13731217}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0622764, y: 0.523021}
+  m_EdgeRadius: 0
 --- !u!1001 &3334960156603764959
 PrefabInstance:
   m_ObjectHideFlags: 0

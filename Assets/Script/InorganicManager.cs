@@ -63,7 +63,7 @@ public class InorganicManager : MonoBehaviour
     {
         //weaponInfo1.isPurchased = true;
         UpdateUIText();
-        SaveGameData();
+        //SaveGameData();
     }
 
     public void CollectInorganicTrash()
@@ -89,7 +89,9 @@ public class InorganicManager : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 2");
-        ResetProgress();
+        PlayerPrefs.SetInt("InorganicTrashCollected", 0);
+        PlayerPrefs.SetInt("InorganicTrashReward", 0);
+        //ResetProgress();
         Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }
@@ -141,6 +143,8 @@ public class InorganicManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        PlayerPrefs.SetInt("InorganicTrashCollected", 0);
+        PlayerPrefs.SetInt("InorganicTrashReward", 0);
         ResetProgress();
     }
 

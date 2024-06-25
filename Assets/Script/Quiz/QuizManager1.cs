@@ -66,7 +66,7 @@ public class QuizManager1 : MonoBehaviour
     private void Update()
     {
         UpdateUIText();
-        SaveGameData();
+        //SaveGameData();
         weaponInfo1.isPurchased = true;
     }
 
@@ -129,7 +129,8 @@ public class QuizManager1 : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 3");
-        ResetProgress();
+        PlayerPrefs.SetInt("QuizTrashCollected1", 0);
+        PlayerPrefs.SetInt("QuizTrashReward1", 0);
         Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }

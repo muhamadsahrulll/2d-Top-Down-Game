@@ -2831,7 +2831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40a9998430427c4f8262984618b4382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 20
 --- !u!1 &285849316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4443,6 +4442,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -5.999355
       objectReference: {fileID: 0}
+    - target: {fileID: 7117916219772086358, guid: 06d9963924de61641b7607eb7d683ddd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7117916219772086359, guid: 06d9963924de61641b7607eb7d683ddd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5233,7 +5236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 200
+  m_MovementRange: 250
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
@@ -7675,7 +7678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.680929, y: -4.98916, z: -10}
+  m_LocalPosition: {x: -11.789282, y: -4.98768, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8839,6 +8842,10 @@ PrefabInstance:
     - target: {fileID: 9023280642301187046, guid: e4750a3c3f0f38f439a2ab8d46ff8c51, type: 3}
       propertyPath: m_Offset.y
       value: -2.7077594
+      objectReference: {fileID: 0}
+    - target: {fileID: 9023280642301187047, guid: e4750a3c3f0f38f439a2ab8d46ff8c51, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9023280642301187048, guid: e4750a3c3f0f38f439a2ab8d46ff8c51, type: 3}
       propertyPath: m_RootOrder
@@ -23189,6 +23196,18 @@ MonoBehaviour:
           m_StringArgument: chooselevel
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 339919229}
+        m_TargetAssemblyTypeName: QuizManager2, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1210973446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26973,11 +26992,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752149992598397054, guid: 899db056cd580f542bd924852e8b57d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.36
+      value: 6.56
       objectReference: {fileID: 0}
     - target: {fileID: 8752149992598397054, guid: 899db056cd580f542bd924852e8b57d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.59
+      value: -1.88
       objectReference: {fileID: 0}
     - target: {fileID: 8752149992598397054, guid: 899db056cd580f542bd924852e8b57d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28772,6 +28791,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: mainmenu
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 339919229}
+        m_TargetAssemblyTypeName: QuizManager2, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1466532136
@@ -50397,7 +50428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2474344315374853047, guid: 7e1e294c029495e4eabe974eb2dc9982, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2474344315374853032, guid: 7e1e294c029495e4eabe974eb2dc9982, type: 3}
@@ -50940,11 +50971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5861165356080588236, guid: fbd9242d1c8b8e24e9bf170be7d2e73f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.32
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 5861165356080588236, guid: fbd9242d1c8b8e24e9bf170be7d2e73f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.76
+      value: 6.61
       objectReference: {fileID: 0}
     - target: {fileID: 5861165356080588236, guid: fbd9242d1c8b8e24e9bf170be7d2e73f, type: 3}
       propertyPath: m_LocalPosition.z

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2474344315374853033}
   - component: {fileID: 2474344315374853047}
-  - component: {fileID: 2474344315374853032}
   m_Layer: 0
   m_Name: gubuk
   m_TagString: Untagged
@@ -85,16 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &2474344315374853032
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2474344315374853034}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1260043, y: 0.94041574, z: 0.2}
-  m_Center: {x: 0.006678613, y: -0.000000040463174, z: 0}

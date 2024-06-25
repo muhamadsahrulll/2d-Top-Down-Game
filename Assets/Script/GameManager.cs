@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
         weaponInfo1.isPurchased = true;
         UpdateUIText();
-        SaveGameData();
+        //SaveGameData();
     }
 
     public void CollectOrganicTrash()
@@ -103,7 +103,9 @@ public class GameManager : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 1");
-        ResetProgress();
+        PlayerPrefs.SetInt("OrganicTrashCollected", 0);
+        PlayerPrefs.SetInt("OrganicTrashReward", 0);
+        //ResetProgress();
         Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }

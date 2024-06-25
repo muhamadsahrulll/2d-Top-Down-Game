@@ -12,7 +12,7 @@ public class RecycleManager2 : MonoBehaviour
     public int recycleTrashCollected = 0;
     public int totalRecycleTrash = 5;
     public int recycleTrashReward = 100;
-    private int currentLevel = 5;
+    private int currentLevel = 6;
 
     public GameObject tutor1;
     public GameObject selamat;
@@ -121,6 +121,11 @@ public class RecycleManager2 : MonoBehaviour
     public void PlayerDied()
     {
         Debug.Log("Player mati di level 2");
+        PlayerPrefs.SetInt("RecycleTrashCollected", 0);
+        PlayerPrefs.SetInt("SampahPlastik", 0);
+        PlayerPrefs.SetInt("SampahGunting", 0);
+        PlayerPrefs.SetInt("SampahTali", 0);
+        PlayerPrefs.SetInt("RecycleTrashReward", 0);
         ResetProgress();
         Kalah.SetActive(true);
     }

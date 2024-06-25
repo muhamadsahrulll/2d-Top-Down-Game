@@ -2459,7 +2459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40a9998430427c4f8262984618b4382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 20
 --- !u!1 &285849316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4580,7 +4579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 200
+  m_MovementRange: 250
   m_DynamicOriginRange: 100
   m_ControlPath: <Gamepad>/leftStick
   m_Behaviour: 0
@@ -6382,11 +6381,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6915432397417716227, guid: a28c5a02fa4c26642a17d870bb82924e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.36
+      value: -16.74
       objectReference: {fileID: 0}
     - target: {fileID: 6915432397417716227, guid: a28c5a02fa4c26642a17d870bb82924e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 6.27
       objectReference: {fileID: 0}
     - target: {fileID: 6915432397417716227, guid: a28c5a02fa4c26642a17d870bb82924e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6638,7 +6637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749135673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05466683, y: 8.45488, z: -10}
+  m_LocalPosition: {x: -0.055028185, y: 8.45488, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8432,6 +8431,18 @@ MonoBehaviour:
           m_StringArgument: mainmenu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 339919229}
+        m_TargetAssemblyTypeName: InorganicManager, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &963009572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8837,6 +8848,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: chooselevel
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 339919229}
+        m_TargetAssemblyTypeName: InorganicManager, Assembly-CSharp
+        m_MethodName: SaveGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1023081474
@@ -42503,6 +42526,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -4.4975095
       objectReference: {fileID: 0}
+    - target: {fileID: 7117916219772086358, guid: 06d9963924de61641b7607eb7d683ddd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7117916219772086359, guid: 06d9963924de61641b7607eb7d683ddd, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -42668,6 +42695,10 @@ PrefabInstance:
     - target: {fileID: 8733043235495202154, guid: d5183890d63a1c44cbf3765e0d918057, type: 3}
       propertyPath: m_Offset.y
       value: -2.95869
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733043235495202155, guid: d5183890d63a1c44cbf3765e0d918057, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5183890d63a1c44cbf3765e0d918057, type: 3}
