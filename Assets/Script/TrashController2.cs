@@ -10,6 +10,7 @@ public class TrashController2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.instance.PlayPickUp();
             InorganicManager.Instance.CollectInorganicTrash();
             Destroy(gameObject);
             Debug.Log("Sampah anorganic");

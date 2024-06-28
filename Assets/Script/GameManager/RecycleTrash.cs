@@ -13,6 +13,7 @@ public class RecycleTrash : MonoBehaviour
             {
                 if (trashCategory.categoryName == "Plastik" || trashCategory.categoryName == "Gunting" || trashCategory.categoryName == "Tali" || trashCategory.categoryName == "BotolDR" || trashCategory.categoryName == "Bunga")
                 {
+                    AudioManager.instance.PlayPickUp();
                     // Panggil CollectRecycleTrash pada kedua instance RecycleManager dan RecycleManager2 jika mereka ada
                     if (RecycleManager.Instance != null)
                     {

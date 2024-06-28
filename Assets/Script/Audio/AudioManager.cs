@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip sfxBenar;
     public AudioClip sfxSalah;
     public AudioClip sfxSelamat;
+    public AudioClip pickup;
 
     private Queue<AudioClip> audioQueue = new Queue<AudioClip>();
     private bool isPlaying = false;
@@ -135,5 +136,10 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(sfxSelamat);
         Debug.Log("SFX Selamat played");
+    }
+
+    public void PlayPickUp()
+    {
+        PlaySound(pickup);
     }
 }

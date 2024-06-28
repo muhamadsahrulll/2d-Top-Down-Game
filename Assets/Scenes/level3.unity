@@ -10558,6 +10558,7 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 543631290}
   playerHealth: {fileID: 285849326}
+  player: {fileID: 285849316}
 --- !u!61 &985741375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21257,10 +21258,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 201289206250419166, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
     - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -43555,6 +43552,7 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 1973193718}
   playerHealth: {fileID: 285849326}
+  player: {fileID: 285849316}
 --- !u!61 &1661206135
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44326,6 +44324,7 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 889318382}
   playerHealth: {fileID: 285849326}
+  player: {fileID: 285849316}
 --- !u!1001 &1803057096
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48646,6 +48645,7 @@ MonoBehaviour:
   trashCategory: {fileID: 11400000, guid: 1ebfbbbb70ce8b04cbe285640fc96117, type: 2}
   quiz: {fileID: 1979096160}
   playerHealth: {fileID: 285849326}
+  player: {fileID: 285849316}
 --- !u!1 &3538184497143900628
 GameObject:
   m_ObjectHideFlags: 0

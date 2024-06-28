@@ -8,6 +8,7 @@ public class TrashQuiz : MonoBehaviour
     public TrashCategory trashCategory;
     public GameObject quiz;
     public PlayerHealth playerHealth;
+    public GameObject player;
 
     
 
@@ -16,6 +17,7 @@ public class TrashQuiz : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             quiz.SetActive(true);
+            player.SetActive(false);
             //InorganicManager.Instance.CollectInorganicTrash();
             //Destroy(gameObject);
             Debug.Log("kuis");
@@ -40,8 +42,10 @@ public class TrashQuiz : MonoBehaviour
         {
             StartCoroutine(QuizManager2.Instance.jawabanB(1.0f));
         }
+        
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
+        player.SetActive(true);
         quiz.SetActive(false);
         
         Debug.Log("jawaban benar");
@@ -65,8 +69,10 @@ public class TrashQuiz : MonoBehaviour
         {
             StartCoroutine(QuizManager2.Instance.jawabanB(1.0f));
         }
+        
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
+        player.SetActive(true);
         quiz.SetActive(false);
         Debug.Log("jawaban benar");
         
@@ -90,8 +96,10 @@ public class TrashQuiz : MonoBehaviour
         {
             StartCoroutine(QuizManager2.Instance.jawabanS(1.0f));
         }
+        
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
+        player.SetActive(true);
         quiz.SetActive(false);
         Debug.Log("jawaban salah");
         
