@@ -56,6 +56,7 @@ public class RecycleManager : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
+        AudioManager.instance.PlayLevel5();
         ScoreManager.Instance.allWeaponInfos = new List<WeaponInfo>(allWeaponInfos);
         foreach (WeaponInfo weaponInfo in allWeaponInfos)
         {
@@ -150,9 +151,9 @@ public class RecycleManager : MonoBehaviour
 
     private void UpdateUIText()
     {
-        plastik.text = "Plastik : " + sampahPlastik + "/" + totalPlastik;
-        tali.text = "Tali : " + sampahTali + "/" + totalTali;
-        guting.text = "Gunting : " + sampahGunting + "/" + totalGuting;
+        plastik.text = "Plastik : " + sampahPlastik;
+        tali.text = "Tali : " + sampahTali;
+        guting.text = "Gunting : " + sampahGunting;
     }
 
     private void RestartGame()

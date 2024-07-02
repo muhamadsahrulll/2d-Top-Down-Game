@@ -47,6 +47,7 @@ public class InorganicManager : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
+        AudioManager.instance.PlayLevel2();
         // Inisialisasi allWeaponInfos di ScoreManager
         ScoreManager.Instance.allWeaponInfos = new List<WeaponInfo>(allWeaponInfos);
 
@@ -109,7 +110,7 @@ public class InorganicManager : MonoBehaviour
 
     private void UpdateUIText()
     {
-        inorganicTrashCollectedText.text = "Sampah Terkumpul : " + inorganicTrashCollected + "/" + totalInorganicTrash;
+        inorganicTrashCollectedText.text = "Sampah Terkumpul : " + inorganicTrashCollected;
         totalInorganicTrashText.text = "Total Sampah Anorganik : " + totalInorganicTrash;
     }
 

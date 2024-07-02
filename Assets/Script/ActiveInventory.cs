@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class ActiveInventory : MonoBehaviour
     private PlayerControl playerControl;
 
     public List<WeaponInfo> allWeaponInfos; // Tambahkan daftar semua WeaponInfo
+    public GameObject belumBeli;
 
     private void Awake()
     {
@@ -81,8 +83,19 @@ public class ActiveInventory : MonoBehaviour
             }
             else
             {
+                Debug.Log("Senjata belum dibeli.");
+                StartCoroutine(NotCompleted(2f));
                 ActiveWeapon.Instance.WeaponNull();
             }
         }
+
     }
+
+    IEnumerator NotCompleted(float seconds)
+    {
+        belumBeli.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        belumBeli.SetActive(false);
+    }
+
 }

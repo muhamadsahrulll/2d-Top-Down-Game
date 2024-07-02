@@ -50,6 +50,7 @@ public class QuizManager1 : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
+        AudioManager.instance.PlayLevel3();
         weaponInfo1.isPurchased = true;
         // Inisialisasi allWeaponInfos di ScoreManager
         ScoreManager.Instance.allWeaponInfos = new List<WeaponInfo>(allWeaponInfos);
@@ -102,7 +103,7 @@ public class QuizManager1 : MonoBehaviour
 
     private void UpdateUIText()
     {
-        quizTrashCollectedText.text = "Sampah Terkumpul : " + quizTrashCollected + "/" + totalquizTrash;
+        quizTrashCollectedText.text = "Sampah Terkumpul : " + quizTrashCollected;
         totalquizTrashText.text = "Total Sampah : " + totalquizTrash;
     }
 

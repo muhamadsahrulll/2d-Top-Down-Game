@@ -45,9 +45,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.496
+  m_Volume: 0.627
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -150,3 +150,10 @@ MonoBehaviour:
   sfxSalah: {fileID: 8300000, guid: 7a14605d16587564195ab243feccbc52, type: 3}
   sfxSelamat: {fileID: 8300000, guid: 0326d17e8e5870e469d52431165462ef, type: 3}
   pickup: {fileID: 8300000, guid: f82bbfccf2bba824b868a50bd6676e1b, type: 3}
+  level1: {fileID: 8300000, guid: b21fda30a158e96488636f1d19f7db34, type: 3}
+  level2: {fileID: 8300000, guid: 080c7be35cc12cc4c842a466c492ef14, type: 3}
+  level3: {fileID: 8300000, guid: 783151988a552934ba624ce6e0a5d954, type: 3}
+  level4: {fileID: 8300000, guid: ee704dc0c5f0486499dcc80942d0c46f, type: 3}
+  level5: {fileID: 8300000, guid: 92a562308b0a3e84fb8caeed68c74227, type: 3}
+  level6: {fileID: 8300000, guid: 0fe159bb6ca2aeb47868ba47e90be53b, type: 3}
+  Soal: {fileID: 8300000, guid: 2c6076059f201af4a806c73a5153c700, type: 3}

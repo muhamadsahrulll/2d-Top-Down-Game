@@ -17,6 +17,7 @@ public class TrashQuiz : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             quiz.SetActive(true);
+            AudioManager.instance.PlaySoal();
             player.SetActive(false);
             //InorganicManager.Instance.CollectInorganicTrash();
             //Destroy(gameObject);

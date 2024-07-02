@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         LoadGameData();
         UpdateUIText();
         tutor1.SetActive(true);
+        AudioManager.instance.PlayLevel1();
         weaponInfo1.isPurchased = true;
 
         // Inisialisasi allWeaponInfos di ScoreManager
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUIText()
     {
-        trashCollectedText.text = "Sampah Terkumpul: " + organicTrashCollected + "/" + totalOrganicTrash;
+        trashCollectedText.text = "Sampah Terkumpul: " + organicTrashCollected;
         totalOrganicTrashText.text = "Total Sampah Organik: " + totalOrganicTrash;
     }
 

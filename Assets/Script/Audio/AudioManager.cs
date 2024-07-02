@@ -16,6 +16,15 @@ public class AudioManager : MonoBehaviour
     public AudioClip sfxSelamat;
     public AudioClip pickup;
 
+    [Header("Suara Level")]
+    public AudioClip level1;
+    public AudioClip level2;
+    public AudioClip level3;
+    public AudioClip level4;
+    public AudioClip level5;
+    public AudioClip level6;
+    public AudioClip Soal;
+
     private Queue<AudioClip> audioQueue = new Queue<AudioClip>();
     private bool isPlaying = false;
 
@@ -141,5 +150,40 @@ public class AudioManager : MonoBehaviour
     public void PlayPickUp()
     {
         PlaySound(pickup);
+    }
+
+    public void PlayLevel1()
+    {
+        PlaySound(level1);
+    }
+
+    public void PlayLevel2()
+    {
+        PlaySound(level2);
+    }
+
+    public void PlayLevel3()
+    {
+        PlaySound(level3);
+    }
+
+    public void PlayLevel4()
+    {
+        PlaySound(level4);
+    }
+
+    public void PlayLevel5()
+    {
+        PlaySound(level5);
+    }
+
+    public void PlayLevel6()
+    {
+        PlaySound(level6);
+    }
+
+    public void PlaySoal()
+    {
+        PlaySound(Soal);
     }
 }
