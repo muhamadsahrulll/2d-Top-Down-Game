@@ -11,7 +11,7 @@ public class QuizManager1 : MonoBehaviour
 
     // Variabel untuk sampah anorganik
     public int quizTrashCollected = 0;
-    public int totalquizTrash = 5;
+    public int totalquizTrash = 4;
     public int quizTrashReward = 10;
     private int currentLevel = 3;
 

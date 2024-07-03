@@ -56,6 +56,7 @@ public class Timer : MonoBehaviour
                 timerIsRunning = false;
                 gameover.SetActive(true);
                 player.SetActive(false);
+
             }
         }
 

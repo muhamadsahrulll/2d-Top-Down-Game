@@ -11,7 +11,7 @@ public class RecycleTrash : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                if (trashCategory.categoryName == "Plastik" || trashCategory.categoryName == "Gunting" || trashCategory.categoryName == "Tali" || trashCategory.categoryName == "BotolDR" || trashCategory.categoryName == "Bunga")
+                if (trashCategory.categoryName == "Plastik" || trashCategory.categoryName == "Gunting" || trashCategory.categoryName == "Gunting2" || trashCategory.categoryName == "Tali" || trashCategory.categoryName == "BotolDR" || trashCategory.categoryName == "Bunga")
                 {
                     AudioManager.instance.PlayPickUp();
                     // Panggil CollectRecycleTrash pada kedua instance RecycleManager dan RecycleManager2 jika mereka ada

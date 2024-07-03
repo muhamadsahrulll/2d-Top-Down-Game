@@ -9,9 +9,9 @@ public class RecycleManager2 : MonoBehaviour
     public static RecycleManager2 Instance;
     public Timer timer;
 
-    public int recycleTrashCollected = 0;
-    public int totalRecycleTrash = 5;
-    public int recycleTrashReward = 100;
+    public int recycleTrashCollected2 = 0;
+    public int totalRecycleTrash2 = 5;
+    public int recycleTrashReward2 = 100;
     private int currentLevel = 6;
 
     public GameObject tutor1;
@@ -73,8 +73,8 @@ public class RecycleManager2 : MonoBehaviour
 
     public void CollectRecycleTrash(string category)
     {
-        recycleTrashCollected++;
-        PlayerPrefs.SetInt("RecycleTrashCollected", recycleTrashCollected);
+        recycleTrashCollected2++;
+        PlayerPrefs.SetInt("RecycleTrashCollected2", recycleTrashCollected2);
 
         switch (category)
         {
@@ -98,17 +98,17 @@ public class RecycleManager2 : MonoBehaviour
 
     public void CraftRecycle()
     {
-        if (recycleTrashCollected >= totalRecycleTrash)
+        if (recycleTrashCollected2 >= totalRecycleTrash2)
         {
             Debug.Log("Recycle Mission Completed");
-            PlayerPrefs.SetInt("RecycleTrashReward", recycleTrashReward);
-            PlayerPrefs.SetInt("RecycleMissionCompleted", 1);
+            PlayerPrefs.SetInt("RecycleTrashReward2", recycleTrashReward2);
+            PlayerPrefs.SetInt("RecycleMissionCompleted2", 1);
             selamat.SetActive(true);
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
-            ScoreManager.Instance.AddOrganicScore(currentLevel, recycleTrashReward);
-            rewardText.text = "Selamat Anda Mendapatkan Score : " + recycleTrashReward;
+            ScoreManager.Instance.AddOrganicScore(currentLevel, recycleTrashReward2);
+            rewardText.text = "Selamat Anda Mendapatkan Score : " + recycleTrashReward2;
             AudioManager.instance.PlaySfxSelamat();
             SaveGameData();
         }
@@ -122,18 +122,18 @@ public class RecycleManager2 : MonoBehaviour
     public void PlayerDied()
     {
         Debug.Log("Player mati di level 2");
-        PlayerPrefs.SetInt("RecycleTrashCollected", 0);
+        PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
         PlayerPrefs.SetInt("SampahPlastik", 0);
         PlayerPrefs.SetInt("SampahGunting", 0);
         PlayerPrefs.SetInt("SampahTali", 0);
-        PlayerPrefs.SetInt("RecycleTrashReward", 0);
+        PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         ResetProgress();
         Kalah.SetActive(true);
     }
 
     public void LoadGameData()
     {
-        recycleTrashCollected = PlayerPrefs.GetInt("RecycleTrashCollected");
+        recycleTrashCollected2 = PlayerPrefs.GetInt("RecycleTrashCollected2");
         sampahBotol = PlayerPrefs.GetInt("SampahBotol");
         sampahGunting = PlayerPrefs.GetInt("SampahGunting");
         sampahBunga = PlayerPrefs.GetInt("SampahBunga");
@@ -142,7 +142,7 @@ public class RecycleManager2 : MonoBehaviour
 
     public void SaveGameData()
     {
-        PlayerPrefs.SetInt("RecycleTrashCollected", recycleTrashCollected);
+        PlayerPrefs.SetInt("RecycleTrashCollected2", recycleTrashCollected2);
         PlayerPrefs.SetInt("SampahBotol", sampahBotol);
         PlayerPrefs.SetInt("SampahGunting", sampahGunting);
         PlayerPrefs.SetInt("SampahBunga", sampahBunga);
@@ -157,8 +157,8 @@ public class RecycleManager2 : MonoBehaviour
 
     private void RestartGame()
     {
-        recycleTrashCollected = 0;
-        PlayerPrefs.SetInt("RecycleTrashCollected", recycleTrashCollected);
+        recycleTrashCollected2 = 0;
+        PlayerPrefs.SetInt("RecycleTrashCollected2", recycleTrashCollected2);
         FindObjectOfType<Timer>().timeRemaining = 60f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         player.SetActive(true);
@@ -171,11 +171,11 @@ public class RecycleManager2 : MonoBehaviour
 
     public void Keluargame()
     {
-        PlayerPrefs.SetInt("RecycleTrashCollected", 0);
+        PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
         PlayerPrefs.SetInt("SampahPlastik", 0);
         PlayerPrefs.SetInt("SampahGunting", 0);
         PlayerPrefs.SetInt("SampahTali", 0);
-        PlayerPrefs.SetInt("RecycleTrashReward", 0);
+        PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         ResetProgress();
         Debug.Log("Keluar game dari level 2");
     }
@@ -187,11 +187,11 @@ public class RecycleManager2 : MonoBehaviour
 
     private void ResetProgress()
     {
-        PlayerPrefs.SetInt("RecycleTrashCollected", 0);
+        PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
         PlayerPrefs.SetInt("SampahBotol", 0);
         PlayerPrefs.SetInt("SampahGunting", 0);
         PlayerPrefs.SetInt("SampahBunga", 0);
-        PlayerPrefs.SetInt("RecycleTrashReward", 0);
+        PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         Debug.Log("Progress direset karena aplikasi ditutup atau dijeda.");
     }
 
