@@ -15,9 +15,12 @@ public class QuizManager2 : MonoBehaviour
     public int quiz2TrashReward = 10;
     private int currentLevel = 4;
 
+    public int totalQuestionsAnswered = 0; // Tambahan variabel untuk melacak total pertanyaan yang telah dijawab
+
     public GameObject tutor1;
     public GameObject selamat;
     public GameObject Kalah;
+    public GameObject KalahSoal;
     public GameObject player;
     public ParticleSystem finish1;
     public ParticleSystem finish2;
@@ -74,44 +77,71 @@ public class QuizManager2 : MonoBehaviour
     public void CollectQuizTrash2()
     {
         quiz2TrashCollected++;
-        PlayerPrefs.SetInt("QuizTrashCollected", quiz2TrashCollected);
+        totalQuestionsAnswered++;
+        PlayerPrefs.SetInt("Quiz2TrashCollected", quiz2TrashCollected);
         UpdateUIText();
-        if (quiz2TrashCollected >= totalquiz2Trash)
+        CheckQuizCompletion();
+    }
+
+    public void CheckQuizCompletion()
+    {
+        if (totalQuestionsAnswered >= totalquiz2Trash)
         {
-            Debug.Log("Quiz Trash Mission Completed");
-            PlayerPrefs.SetInt("Quiz2TrashReward", quiz2TrashReward);
-            selamat.SetActive(true);
-            timer.PauseTimer();
-            finish1.Play();
-            finish2.Play();
-            ScoreManager.Instance.AddOrganicScore(currentLevel, quiz2TrashReward);
-            rewardText.text = "Selamat Anda Mendapatkan Score :" + quiz2TrashReward;
-            AudioManager.instance.PlaySfxSelamat();
+            if (quiz2TrashCollected >= totalquiz2Trash)
+            {
+                Debug.Log("Quiz Trash Mission Completed");
+                PlayerPrefs.SetInt("Quiz2TrashReward", quiz2TrashReward);
+                selamat.SetActive(true);
+                timer.PauseTimer();
+                finish1.Play();
+                finish2.Play();
+                ScoreManager.Instance.AddOrganicScore(currentLevel, quiz2TrashReward);
+                rewardText.text = "Selamat Anda Mendapatkan Score :" + quiz2TrashReward;
+                AudioManager.instance.PlaySfxSelamat();
+            }
+            else
+            {
+                Debug.Log("Kamu belum berhasil menjawab pertanyaan dengan benar");
+
+                // Cek apakah ada yang belum dijawab dengan benar
+                bool allAnsweredCorrectly = quiz2TrashCollected >= totalquiz2Trash;
+                if (!allAnsweredCorrectly)
+                {
+                    //Kalah.SetActive(true);
+                    KalahSoal.SetActive(true);
+                    timer.PauseTimer();
+                    // Tambahkan logika untuk game over di sini
+                }
+            }
         }
     }
 
     public void LoadGameData()
     {
         quiz2TrashCollected = PlayerPrefs.GetInt("Quiz2TrashCollected", 0);
+        totalQuestionsAnswered = PlayerPrefs.GetInt("TotalQuestionsAnswered2", 0);
         UpdateUIText();
     }
 
     public void SaveGameData()
     {
         PlayerPrefs.SetInt("Quiz2TrashCollected", quiz2TrashCollected);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered2", totalQuestionsAnswered);
     }
 
     private void UpdateUIText()
     {
         quiz2TrashCollectedText.text = "Sampah Terkumpul : " + quiz2TrashCollected;
-        totalquiz2TrashText.text = "Total Sampah: " + totalquiz2Trash;
+        totalquiz2TrashText.text = "Total Sampah : " + totalquiz2Trash;
     }
 
     private void RestartGame()
     {
         // Reset nilai-nilai yang perlu di-reset
         quiz2TrashCollected = 0;
+        totalQuestionsAnswered = 0;
         PlayerPrefs.SetInt("Quiz2TrashCollected", quiz2TrashCollected);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered2", totalQuestionsAnswered);
 
         // Restart timer
         FindObjectOfType<Timer>().timeRemaining = 60f;
@@ -130,19 +160,18 @@ public class QuizManager2 : MonoBehaviour
     {
         // Tambahkan kode untuk menampilkan image dari canvas
         Debug.Log("Player mati di level 4");
-        PlayerPrefs.SetInt("QuizTrashCollected2", 0);
-        PlayerPrefs.SetInt("QuizTrashReward2", 0);
-        ResetProgress();
+        PlayerPrefs.SetInt("Quiz2TrashCollected1", 0);
+        PlayerPrefs.SetInt("Quiz2TrashReward1", 0);
         Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
     }
 
     public void Keluargame()
     {
-        PlayerPrefs.SetInt("QuizTrashCollected2", 0);
-        PlayerPrefs.SetInt("QuizTrashReward2", 0);
+        PlayerPrefs.SetInt("Quiz2TrashCollected1", 0);
+        PlayerPrefs.SetInt("Quiz2TrashReward1", 0);
         // Tambahkan kode untuk keluar dari game
-        //ResetProgress();
+        ResetProgress();
         Debug.Log("Keluar game dari level 4");
     }
 
@@ -167,8 +196,9 @@ public class QuizManager2 : MonoBehaviour
 
     public void ResetProgress()
     {
-        PlayerPrefs.SetInt("QuizTrashCollected2", 0);
-        PlayerPrefs.SetInt("QuizTrashReward2", 0);
+        PlayerPrefs.SetInt("Quiz2TrashCollected1", 0);
+        PlayerPrefs.SetInt("Quiz2TrashReward1", 0);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered2", 0);
         Debug.Log("Progress direset karena aplikasi ditutup atau dijeda.");
     }
 }

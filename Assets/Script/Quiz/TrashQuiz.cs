@@ -10,8 +10,6 @@ public class TrashQuiz : MonoBehaviour
     public PlayerHealth playerHealth;
     public GameObject player;
 
-    
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -19,8 +17,6 @@ public class TrashQuiz : MonoBehaviour
             quiz.SetActive(true);
             AudioManager.instance.PlaySoal();
             player.SetActive(false);
-            //InorganicManager.Instance.CollectInorganicTrash();
-            //Destroy(gameObject);
             Debug.Log("kuis");
         }
     }
@@ -43,12 +39,12 @@ public class TrashQuiz : MonoBehaviour
         {
             StartCoroutine(QuizManager2.Instance.jawabanB(1.0f));
         }
-        
+
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
         player.SetActive(true);
         quiz.SetActive(false);
-        
+
         Debug.Log("jawaban benar");
     }
 
@@ -70,19 +66,19 @@ public class TrashQuiz : MonoBehaviour
         {
             StartCoroutine(QuizManager2.Instance.jawabanB(1.0f));
         }
-        
+
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
         player.SetActive(true);
         quiz.SetActive(false);
         Debug.Log("jawaban benar");
-        
     }
 
     public void Quizsalah1()
     {
         playerHealth.TakeDamage(10);
         AudioManager.instance.PlaySfxSalah();
+        QuizManager1.Instance.totalQuestionsAnswered++;
         StartCoroutine(HandleQuizsalah1());
     }
 
@@ -97,13 +93,11 @@ public class TrashQuiz : MonoBehaviour
         {
             StartCoroutine(QuizManager2.Instance.jawabanS(1.0f));
         }
-        
+
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
         player.SetActive(true);
         quiz.SetActive(false);
         Debug.Log("jawaban salah");
-        
     }
-
 }
