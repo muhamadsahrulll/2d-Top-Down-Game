@@ -74,7 +74,7 @@ public class QuizManager1 : MonoBehaviour
     {
         quizTrashCollected++;
         totalQuestionsAnswered++;
-        PlayerPrefs.SetInt("QuizTrashCollected", quizTrashCollected);
+        PlayerPrefs.SetInt("QuizTrashCollected_Level3", quizTrashCollected);
         UpdateUIText();
         CheckQuizCompletion();
     }
@@ -99,7 +99,7 @@ public class QuizManager1 : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("QuizTrashReward", quizTrashReward);
+                PlayerPrefs.SetInt("QuizTrashReward_Level3", quizTrashReward);
                 selamat.SetActive(true);
                 timer.PauseTimer();
                 finish1.Play();
@@ -113,17 +113,17 @@ public class QuizManager1 : MonoBehaviour
 
     public void LoadGameData()
     {
-        quizTrashCollected = PlayerPrefs.GetInt("QuizTrashCollected", 0);
-        totalQuestionsAnswered = PlayerPrefs.GetInt("TotalQuestionsAnswered", 0);
-        totalWrongAnswers = PlayerPrefs.GetInt("TotalWrongAnswers", 0);
+        quizTrashCollected = PlayerPrefs.GetInt("QuizTrashCollected_Level3", 0);
+        totalQuestionsAnswered = PlayerPrefs.GetInt("TotalQuestionsAnswered_Level3", 0);
+        totalWrongAnswers = PlayerPrefs.GetInt("TotalWrongAnswers_Level3", 0);
         UpdateUIText();
     }
 
     public void SaveGameData()
     {
-        PlayerPrefs.SetInt("QuizTrashCollected", quizTrashCollected);
-        PlayerPrefs.SetInt("TotalQuestionsAnswered", totalQuestionsAnswered);
-        PlayerPrefs.SetInt("TotalWrongAnswers", totalWrongAnswers);
+        PlayerPrefs.SetInt("QuizTrashCollected_Level3", quizTrashCollected);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered_Level3", totalQuestionsAnswered);
+        PlayerPrefs.SetInt("TotalWrongAnswers_Level3", totalWrongAnswers);
     }
 
     private void UpdateUIText()
@@ -137,9 +137,9 @@ public class QuizManager1 : MonoBehaviour
         quizTrashCollected = 0;
         totalQuestionsAnswered = 0;
         totalWrongAnswers = 0;
-        PlayerPrefs.SetInt("QuizTrashCollected", quizTrashCollected);
-        PlayerPrefs.SetInt("TotalQuestionsAnswered", totalQuestionsAnswered);
-        PlayerPrefs.SetInt("TotalWrongAnswers", totalWrongAnswers);
+        PlayerPrefs.SetInt("QuizTrashCollected_Level3", quizTrashCollected);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered_Level3", totalQuestionsAnswered);
+        PlayerPrefs.SetInt("TotalWrongAnswers_Level3", totalWrongAnswers);
 
         FindObjectOfType<Timer>().timeRemaining = 60f;
 
@@ -154,16 +154,16 @@ public class QuizManager1 : MonoBehaviour
 
     public void PlayerDied()
     {
-        PlayerPrefs.SetInt("QuizTrashCollected1", 0);
-        PlayerPrefs.SetInt("QuizTrashReward1", 0);
+        PlayerPrefs.SetInt("QuizTrashCollected_Level3", 0);
+        PlayerPrefs.SetInt("QuizTrashReward_Level3", 0);
         Timer.Instance.StopTimer();
         Kalah.SetActive(true);
     }
 
     public void Keluargame()
     {
-        PlayerPrefs.SetInt("QuizTrashCollected1", 0);
-        PlayerPrefs.SetInt("QuizTrashReward1", 0);
+        PlayerPrefs.SetInt("QuizTrashCollected_Level3", 0);
+        PlayerPrefs.SetInt("QuizTrashReward_Level3", 0);
         ResetProgress();
     }
 
@@ -188,9 +188,9 @@ public class QuizManager1 : MonoBehaviour
 
     public void ResetProgress()
     {
-        PlayerPrefs.SetInt("QuizTrashCollected1", 0);
-        PlayerPrefs.SetInt("QuizTrashReward1", 0);
-        PlayerPrefs.SetInt("TotalQuestionsAnswered", 0);
-        PlayerPrefs.SetInt("TotalWrongAnswers", 0);
+        PlayerPrefs.SetInt("QuizTrashCollected_Level3", 0);
+        PlayerPrefs.SetInt("QuizTrashReward_Level3", 0);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered_Level3", 0);
+        PlayerPrefs.SetInt("TotalWrongAnswers_Level3", 0);
     }
 }

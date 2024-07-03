@@ -23,65 +23,52 @@ public class TrashQuiz : MonoBehaviour
 
     public void Quizbenar1()
     {
-        QuizManager1.Instance.CollectQuizTrash();
-        AudioManager.instance.PlaySfxBenar();
-        StartCoroutine(HandleQuizbenar1());
-    }
-
-    private IEnumerator HandleQuizbenar1()
-    {
         if (QuizManager1.Instance != null)
         {
-            StartCoroutine(QuizManager1.Instance.jawabanB(1.0f));
+            QuizManager1.Instance.CollectQuizTrash();
+            AudioManager.instance.PlaySfxBenar();
+            StartCoroutine(HandleQuizbenar(QuizManager1.Instance));
         }
-
-        if (QuizManager2.Instance != null)
-        {
-            StartCoroutine(QuizManager2.Instance.jawabanB(1.0f));
-        }
-
-        yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
-        Destroy(gameObject);
-        player.SetActive(true);
-        quiz.SetActive(false);
-
-        Debug.Log("jawaban benar");
     }
 
     public void Quizbenar2()
     {
-        QuizManager2.Instance.CollectQuizTrash2();
-        AudioManager.instance.PlaySfxBenar();
-        StartCoroutine(HandleQuizbenar2());
-    }
-
-    private IEnumerator HandleQuizbenar2()
-    {
-        if (QuizManager1.Instance != null)
-        {
-            StartCoroutine(QuizManager1.Instance.jawabanB(1.0f));
-        }
-
         if (QuizManager2.Instance != null)
         {
-            StartCoroutine(QuizManager2.Instance.jawabanB(1.0f));
+            QuizManager2.Instance.CollectQuizTrash2();
+            AudioManager.instance.PlaySfxBenar();
+            StartCoroutine(HandleQuizbenar(QuizManager2.Instance));
+        }
+    }
+
+    private IEnumerator HandleQuizbenar(object quizManager)
+    {
+        if (quizManager is QuizManager1 quizManager1)
+        {
+            StartCoroutine(quizManager1.jawabanB(1.0f));
+        }
+
+        if (quizManager is QuizManager2 quizManager2)
+        {
+            StartCoroutine(quizManager2.jawabanB(1.0f));
         }
 
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
         Destroy(gameObject);
         player.SetActive(true);
         quiz.SetActive(false);
+
         Debug.Log("jawaban benar");
     }
 
     public void Quizsalah1()
     {
-        playerHealth.TakeDamage(10);
-        AudioManager.instance.PlaySfxSalah();
         if (QuizManager1.Instance != null)
         {
+            playerHealth.TakeDamage(10);
+            AudioManager.instance.PlaySfxSalah();
             QuizManager1.Instance.AnswerWrong();
-            StartCoroutine(HandleQuizsalah1());
+            StartCoroutine(HandleQuizsalah(QuizManager1.Instance));
         }
         else
         {
@@ -89,33 +76,14 @@ public class TrashQuiz : MonoBehaviour
         }
     }
 
-    private IEnumerator HandleQuizsalah1()
-    {
-        if (QuizManager1.Instance != null)
-        {
-            StartCoroutine(QuizManager1.Instance.jawabanS(1.0f));
-        }
-
-        if (QuizManager2.Instance != null)
-        {
-            StartCoroutine(QuizManager2.Instance.jawabanS(1.0f));
-        }
-
-        yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
-        Destroy(gameObject);
-        player.SetActive(true);
-        quiz.SetActive(false);
-        Debug.Log("jawaban salah");
-    }
-
     public void Quizsalah2()
     {
-        playerHealth.TakeDamage(10);
-        AudioManager.instance.PlaySfxSalah();
         if (QuizManager2.Instance != null)
         {
+            playerHealth.TakeDamage(10);
+            AudioManager.instance.PlaySfxSalah();
             QuizManager2.Instance.AnswerWrong();
-            StartCoroutine(HandleQuizsalah2());
+            StartCoroutine(HandleQuizsalah(QuizManager2.Instance));
         }
         else
         {
@@ -123,16 +91,16 @@ public class TrashQuiz : MonoBehaviour
         }
     }
 
-    private IEnumerator HandleQuizsalah2()
+    private IEnumerator HandleQuizsalah(object quizManager)
     {
-        if (QuizManager1.Instance != null)
+        if (quizManager is QuizManager1 quizManager1)
         {
-            StartCoroutine(QuizManager1.Instance.jawabanS(1.0f));
+            StartCoroutine(quizManager1.jawabanS(1.0f));
         }
 
-        if (QuizManager2.Instance != null)
+        if (quizManager is QuizManager2 quizManager2)
         {
-            StartCoroutine(QuizManager2.Instance.jawabanS(1.0f));
+            StartCoroutine(quizManager2.jawabanS(1.0f));
         }
 
         yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai

@@ -74,7 +74,7 @@ public class QuizManager2 : MonoBehaviour
     {
         quiz2TrashCollected++;
         totalQuestionsAnswered++;
-        PlayerPrefs.SetInt("Quiz2TrashCollected", quiz2TrashCollected);
+        PlayerPrefs.SetInt("Quiz2TrashCollected_Level4", quiz2TrashCollected);
         UpdateUIText();
         CheckQuizCompletion();
     }
@@ -99,7 +99,7 @@ public class QuizManager2 : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Quiz2TrashReward", quiz2TrashReward);
+                PlayerPrefs.SetInt("Quiz2TrashReward_Level4", quiz2TrashReward);
                 selamat.SetActive(true);
                 timer.PauseTimer();
                 finish1.Play();
@@ -113,17 +113,17 @@ public class QuizManager2 : MonoBehaviour
 
     public void LoadGameData()
     {
-        quiz2TrashCollected = PlayerPrefs.GetInt("Quiz2TrashCollected", 0);
-        totalQuestionsAnswered = PlayerPrefs.GetInt("TotalQuestionsAnswered", 0);
-        totalWrongAnswers = PlayerPrefs.GetInt("TotalWrongAnswers", 0);
+        quiz2TrashCollected = PlayerPrefs.GetInt("Quiz2TrashCollected_Level4", 0);
+        totalQuestionsAnswered = PlayerPrefs.GetInt("TotalQuestionsAnswered_Level4", 0);
+        totalWrongAnswers = PlayerPrefs.GetInt("TotalWrongAnswers_Level4", 0);
         UpdateUIText();
     }
 
     public void SaveGameData()
     {
-        PlayerPrefs.SetInt("Quiz2TrashCollected", quiz2TrashCollected);
-        PlayerPrefs.SetInt("TotalQuestionsAnswered", totalQuestionsAnswered);
-        PlayerPrefs.SetInt("TotalWrongAnswers", totalWrongAnswers);
+        PlayerPrefs.SetInt("Quiz2TrashCollected_Level4", quiz2TrashCollected);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered_Level4", totalQuestionsAnswered);
+        PlayerPrefs.SetInt("TotalWrongAnswers_Level4", totalWrongAnswers);
     }
 
     private void UpdateUIText()
@@ -137,9 +137,9 @@ public class QuizManager2 : MonoBehaviour
         quiz2TrashCollected = 0;
         totalQuestionsAnswered = 0;
         totalWrongAnswers = 0;
-        PlayerPrefs.SetInt("Quiz2TrashCollected", quiz2TrashCollected);
-        PlayerPrefs.SetInt("TotalQuestionsAnswered", totalQuestionsAnswered);
-        PlayerPrefs.SetInt("TotalWrongAnswers", totalWrongAnswers);
+        PlayerPrefs.SetInt("Quiz2TrashCollected_Level4", quiz2TrashCollected);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered_Level4", totalQuestionsAnswered);
+        PlayerPrefs.SetInt("TotalWrongAnswers_Level4", totalWrongAnswers);
 
         FindObjectOfType<Timer>().timeRemaining = 60f;
 
@@ -154,16 +154,16 @@ public class QuizManager2 : MonoBehaviour
 
     public void PlayerDied()
     {
-        PlayerPrefs.SetInt("Quiz2TrashCollected1", 0);
-        PlayerPrefs.SetInt("Quiz2TrashReward1", 0);
+        PlayerPrefs.SetInt("Quiz2TrashCollected_Level4", 0);
+        PlayerPrefs.SetInt("Quiz2TrashReward_Level4", 0);
         Timer.Instance.StopTimer();
         Kalah.SetActive(true);
     }
 
     public void Keluargame()
     {
-        PlayerPrefs.SetInt("Quiz2TrashCollected1", 0);
-        PlayerPrefs.SetInt("Quiz2TrashReward1", 0);
+        PlayerPrefs.SetInt("Quiz2TrashCollected_Level4", 0);
+        PlayerPrefs.SetInt("Quiz2TrashReward_Level4", 0);
         ResetProgress();
     }
 
@@ -188,9 +188,9 @@ public class QuizManager2 : MonoBehaviour
 
     public void ResetProgress()
     {
-        PlayerPrefs.SetInt("Quiz2TrashCollected1", 0);
-        PlayerPrefs.SetInt("Quiz2TrashReward1", 0);
-        PlayerPrefs.SetInt("TotalQuestionsAnswered", 0);
-        PlayerPrefs.SetInt("TotalWrongAnswers", 0);
+        PlayerPrefs.SetInt("Quiz2TrashCollected_Level4", 0);
+        PlayerPrefs.SetInt("Quiz2TrashReward_Level4", 0);
+        PlayerPrefs.SetInt("TotalQuestionsAnswered_Level4", 0);
+        PlayerPrefs.SetInt("TotalWrongAnswers_Level4", 0);
     }
 }
