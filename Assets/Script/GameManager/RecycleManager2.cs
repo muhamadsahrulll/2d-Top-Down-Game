@@ -129,6 +129,7 @@ public class RecycleManager2 : MonoBehaviour
         PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         ResetProgress();
         Kalah.SetActive(true);
+        AudioManager.instance.PlayKalahBakteri();
     }
 
     public void LoadGameData()

@@ -25,6 +25,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip level6;
     public AudioClip Soal;
 
+    [Header("sfx")]
+    public AudioClip kalahbakteri;
+    public AudioClip waktuhabis;
+    public AudioClip salahpertanyaan;
+
     private Queue<AudioClip> audioQueue = new Queue<AudioClip>();
     private bool isPlaying = false;
 
@@ -185,5 +190,20 @@ public class AudioManager : MonoBehaviour
     public void PlaySoal()
     {
         PlaySound(Soal);
+    }
+
+    public void PlayWaktuHabis()
+    {
+        PlaySound(waktuhabis);
+    }
+
+    public void PlayKalahBakteri()
+    {
+        PlaySound(kalahbakteri);
+    }
+
+    public void PlaySoalSalah()
+    {
+        PlaySound(salahpertanyaan);
     }
 }

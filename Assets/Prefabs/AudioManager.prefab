@@ -45,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.627
+  m_Volume: 0.671
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -157,3 +157,6 @@ MonoBehaviour:
   level5: {fileID: 8300000, guid: 92a562308b0a3e84fb8caeed68c74227, type: 3}
   level6: {fileID: 8300000, guid: 0fe159bb6ca2aeb47868ba47e90be53b, type: 3}
   Soal: {fileID: 8300000, guid: 2c6076059f201af4a806c73a5153c700, type: 3}
+  kalahbakteri: {fileID: 8300000, guid: 74a2c1ad38e97ef48ba65a5195ac5bbf, type: 3}
+  waktuhabis: {fileID: 8300000, guid: 6bdc9cc01d504a94891acdbde4dbf708, type: 3}
+  salahpertanyaan: {fileID: 8300000, guid: b679f06912c2108428c5c6e5714212ba, type: 3}

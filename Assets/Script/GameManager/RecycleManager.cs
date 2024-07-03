@@ -130,6 +130,7 @@ public class RecycleManager : MonoBehaviour
         //ResetProgress();
         Timer.Instance.StopTimer();
         Kalah.SetActive(true);
+        AudioManager.instance.PlayKalahBakteri();
     }
 
     public void LoadGameData()

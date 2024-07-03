@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
         //ResetProgress();
         Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
+        AudioManager.instance.PlayKalahBakteri();
     }
 
 

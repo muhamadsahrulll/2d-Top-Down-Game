@@ -95,6 +95,7 @@ public class InorganicManager : MonoBehaviour
         //ResetProgress();
         Timer.Instance.StopTimer();
         Kalah.SetActive(true); // Aktifkan image game over
+        AudioManager.instance.PlayKalahBakteri();
     }
 
     public void LoadGameData()

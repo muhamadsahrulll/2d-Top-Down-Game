@@ -48,6 +48,7 @@ public class Timer : MonoBehaviour
                 timerIsRunning = false;
                 StopTimer();
                 GameOver();
+                AudioManager.instance.PlayWaktuHabis();
             }
         }
     }

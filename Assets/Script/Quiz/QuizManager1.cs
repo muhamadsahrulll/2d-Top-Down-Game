@@ -94,6 +94,7 @@ public class QuizManager1 : MonoBehaviour
             if (totalWrongAnswers > 0)
             {
                 KalahSoal.SetActive(true);
+                AudioManager.instance.PlaySoalSalah();
                 timer.PauseTimer();
                 // Tambahkan logika untuk game over di sini
             }
@@ -158,6 +159,7 @@ public class QuizManager1 : MonoBehaviour
         PlayerPrefs.SetInt("QuizTrashReward_Level3", 0);
         Timer.Instance.StopTimer();
         Kalah.SetActive(true);
+        AudioManager.instance.PlayKalahBakteri();
     }
 
     public void Keluargame()
