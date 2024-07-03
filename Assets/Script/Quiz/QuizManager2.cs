@@ -165,7 +165,7 @@ public class QuizManager2 : MonoBehaviour
         ResetProgress();
     }
 
-    private void ResetProgress()
+    public void ResetProgress()
     {
         PlayerPrefs.SetInt("QuizTrashCollected2", 0);
         PlayerPrefs.SetInt("QuizTrashReward2", 0);

@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
 
    
 
-    private void ResetProgress()
+    public void ResetProgress()
     {
         PlayerPrefs.SetInt("OrganicTrashCollected", 0);
         PlayerPrefs.SetInt("OrganicTrashReward", 0);

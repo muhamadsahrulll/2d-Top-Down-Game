@@ -150,7 +150,7 @@ public class InorganicManager : MonoBehaviour
     }
 
 
-    private void ResetProgress()
+    public void ResetProgress()
     {
         PlayerPrefs.SetInt("InorganicTrashCollected", 0);
         PlayerPrefs.SetInt("InorganicTrashReward", 0);

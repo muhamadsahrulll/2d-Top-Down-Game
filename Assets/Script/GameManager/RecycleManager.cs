@@ -186,7 +186,7 @@ public class RecycleManager : MonoBehaviour
         ResetProgress();
     }
 
-    private void ResetProgress()
+    public void ResetProgress()
     {
         PlayerPrefs.SetInt("RecycleTrashCollected", 0);
         PlayerPrefs.SetInt("SampahPlastik", 0);
