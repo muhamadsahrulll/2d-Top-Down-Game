@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         // Starts the timer automatically
-        timerIsRunning = true;
+        //timerIsRunning = true;
         UpdateTimerText();
     }
 
@@ -108,6 +108,11 @@ public class Timer : MonoBehaviour
     public void RestartTimer(float newTime)
     {
         timeRemaining = newTime;
+        timerIsRunning = true;
+    }
+
+    public void StartTimer()
+    {
         timerIsRunning = true;
     }
 }

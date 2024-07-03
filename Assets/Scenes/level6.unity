@@ -24223,20 +24223,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339919228}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Loadscene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: mainmenu
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: InorganicManager, Assembly-CSharp
+      - m_Target: {fileID: 339919231}
+        m_TargetAssemblyTypeName: RecycleManager2, Assembly-CSharp
         m_MethodName: Keluargame
         m_Mode: 1
         m_Arguments:
@@ -24245,6 +24233,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 396721000}
+        m_TargetAssemblyTypeName: home, Assembly-CSharp
+        m_MethodName: loadscene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: mainmenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1117976018

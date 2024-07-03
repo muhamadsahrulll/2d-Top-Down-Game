@@ -81,7 +81,7 @@ public class RecycleManager2 : MonoBehaviour
             case "BotolDR":
                 sampahBotol++;
                 break;
-            case "Gunting":
+            case "Gunting2":
                 sampahGunting++;
                 break;
             case "Bunga":
@@ -124,7 +124,7 @@ public class RecycleManager2 : MonoBehaviour
         Debug.Log("Player mati di level 2");
         PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
         PlayerPrefs.SetInt("SampahPlastik", 0);
-        PlayerPrefs.SetInt("SampahGunting", 0);
+        PlayerPrefs.SetInt("SampahGunting2", 0);
         PlayerPrefs.SetInt("SampahTali", 0);
         PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         ResetProgress();
@@ -135,7 +135,7 @@ public class RecycleManager2 : MonoBehaviour
     {
         recycleTrashCollected2 = PlayerPrefs.GetInt("RecycleTrashCollected2");
         sampahBotol = PlayerPrefs.GetInt("SampahBotol");
-        sampahGunting = PlayerPrefs.GetInt("SampahGunting");
+        sampahGunting = PlayerPrefs.GetInt("SampahGunting2");
         sampahBunga = PlayerPrefs.GetInt("SampahBunga");
         UpdateUIText();
     }
@@ -144,7 +144,7 @@ public class RecycleManager2 : MonoBehaviour
     {
         PlayerPrefs.SetInt("RecycleTrashCollected2", recycleTrashCollected2);
         PlayerPrefs.SetInt("SampahBotol", sampahBotol);
-        PlayerPrefs.SetInt("SampahGunting", sampahGunting);
+        PlayerPrefs.SetInt("SampahGunting2", sampahGunting);
         PlayerPrefs.SetInt("SampahBunga", sampahBunga);
     }
 
@@ -173,7 +173,7 @@ public class RecycleManager2 : MonoBehaviour
     {
         PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
         PlayerPrefs.SetInt("SampahPlastik", 0);
-        PlayerPrefs.SetInt("SampahGunting", 0);
+        PlayerPrefs.SetInt("SampahGunting2", 0);
         PlayerPrefs.SetInt("SampahTali", 0);
         PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         ResetProgress();
@@ -189,7 +189,7 @@ public class RecycleManager2 : MonoBehaviour
     {
         PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
         PlayerPrefs.SetInt("SampahBotol", 0);
-        PlayerPrefs.SetInt("SampahGunting", 0);
+        PlayerPrefs.SetInt("SampahGunting2", 0);
         PlayerPrefs.SetInt("SampahBunga", 0);
         PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         Debug.Log("Progress direset karena aplikasi ditutup atau dijeda.");

@@ -2999,9 +2999,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 339919228}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Loadscene
+      - m_Target: {fileID: 396721000}
+        m_TargetAssemblyTypeName: home, Assembly-CSharp
+        m_MethodName: loadscene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4203,6 +4203,7 @@ MonoBehaviour:
   totalquiz2Trash: 4
   quiz2TrashReward: 100
   totalQuestionsAnswered: 0
+  totalWrongAnswers: 0
   tutor1: {fileID: 223898411}
   selamat: {fileID: 289340971}
   Kalah: {fileID: 2009599008}
@@ -8497,7 +8498,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1764403588}
         m_TargetAssemblyTypeName: TrashQuiz, Assembly-CSharp
-        m_MethodName: Quizsalah1
+        m_MethodName: Quizsalah2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12630,18 +12631,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339919228}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Loadscene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: mainmenu
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 339919229}
         m_TargetAssemblyTypeName: QuizManager2, Assembly-CSharp
         m_MethodName: Keluargame
@@ -12652,6 +12641,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 396721000}
+        m_TargetAssemblyTypeName: home, Assembly-CSharp
+        m_MethodName: loadscene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: mainmenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1087535690
@@ -12912,7 +12913,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 985741374}
         m_TargetAssemblyTypeName: TrashQuiz, Assembly-CSharp
-        m_MethodName: Quizsalah1
+        m_MethodName: Quizsalah2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30193,7 +30194,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3538184497143900624}
         m_TargetAssemblyTypeName: TrashQuiz, Assembly-CSharp
-        m_MethodName: Quizsalah1
+        m_MethodName: Quizsalah2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49494,7 +49495,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1661206134}
         m_TargetAssemblyTypeName: TrashQuiz, Assembly-CSharp
-        m_MethodName: Quizsalah1
+        m_MethodName: Quizsalah2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -53271,7 +53272,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.8102617}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -53282,7 +53283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.14, y: 2.79}
+  m_Size: {x: 2.14, y: 1.1694765}
   m_EdgeRadius: 0
 --- !u!212 &2145045152
 SpriteRenderer:

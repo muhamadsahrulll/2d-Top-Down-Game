@@ -78,11 +78,52 @@ public class TrashQuiz : MonoBehaviour
     {
         playerHealth.TakeDamage(10);
         AudioManager.instance.PlaySfxSalah();
-        QuizManager1.Instance.totalQuestionsAnswered++;
-        StartCoroutine(HandleQuizsalah1());
+        if (QuizManager1.Instance != null)
+        {
+            QuizManager1.Instance.AnswerWrong();
+            StartCoroutine(HandleQuizsalah1());
+        }
+        else
+        {
+            Debug.LogWarning("QuizManager1.Instance is null. Quizsalah1() cannot proceed.");
+        }
     }
 
     private IEnumerator HandleQuizsalah1()
+    {
+        if (QuizManager1.Instance != null)
+        {
+            StartCoroutine(QuizManager1.Instance.jawabanS(1.0f));
+        }
+
+        if (QuizManager2.Instance != null)
+        {
+            StartCoroutine(QuizManager2.Instance.jawabanS(1.0f));
+        }
+
+        yield return new WaitForSeconds(1.5f); // Tambahkan sedikit waktu untuk memastikan coroutine selesai
+        Destroy(gameObject);
+        player.SetActive(true);
+        quiz.SetActive(false);
+        Debug.Log("jawaban salah");
+    }
+
+    public void Quizsalah2()
+    {
+        playerHealth.TakeDamage(10);
+        AudioManager.instance.PlaySfxSalah();
+        if (QuizManager2.Instance != null)
+        {
+            QuizManager2.Instance.AnswerWrong();
+            StartCoroutine(HandleQuizsalah2());
+        }
+        else
+        {
+            Debug.LogWarning("QuizManager2.Instance is null. Quizsalah2() cannot proceed.");
+        }
+    }
+
+    private IEnumerator HandleQuizsalah2()
     {
         if (QuizManager1.Instance != null)
         {

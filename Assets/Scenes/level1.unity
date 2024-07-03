@@ -3466,9 +3466,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 339919228}
-        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: Loadscene
+      - m_Target: {fileID: 396721000}
+        m_TargetAssemblyTypeName: home, Assembly-CSharp
+        m_MethodName: loadscene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
