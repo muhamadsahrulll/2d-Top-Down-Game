@@ -3297,9 +3297,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: PENDUDUK
+    name: sahrul
     sentences:
-    - setelah mendapatkan gunting, kita gunting plastik membentuk tas, sesuai keinginan
+    - setelah mendapatkan gunting, kita gunting plastik hingga membentuk tas sesuai
+      keinginan kita yah.
+    audioClips:
+    - {fileID: 8300000, guid: 486f3d4c17eee7c49a07e37d5934d433, type: 3}
 --- !u!114 &309110050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3888,12 +3891,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: PENDUDUK
+    name: sahrul
     sentences:
-    - setelah digunting, ikat menggunakan tali agar tidak terlepas...
-    - jika masih kurang kuat, bisa tambahkan lem
+    - setelah digunting, ikat menggunakan tali agar plastik tidak terlepas...
     - Setelah itu, kamu bisa menekan tombol misi dan tekan tombol buat produk untuk
       membuat tas dari plastik
+    audioClips:
+    - {fileID: 8300000, guid: bdca6e9a8c2c52b449b1371d207636b9, type: 3}
+    - {fileID: 8300000, guid: f188cbd4b4b8ae34a89dfe4e0cf77f23, type: 3}
 --- !u!114 &386053513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20744,7 +20749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0125305755, y: 0.050488513}
   m_AnchorMax: {x: 0.98944783, y: 0.67187613}
-  m_AnchoredPosition: {x: -1.2902832, y: -2.8866425}
+  m_AnchoredPosition: {x: -1.2902832, y: -2.8866577}
   m_SizeDelta: {x: 1.0681152, y: -1.0001984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199884429
@@ -26328,11 +26333,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: PENDUDUK
+    name: sahrul
     sentences:
     - UNTUK MEMBUAT TAS DARI PLASTIK, PERTAMA KITA KUMPULKAN PLASTIK BEKAS NYA TERLEBIH
       DAHULU
-    - LALU SIAPKAN GUNTING
+    - lalu kita perlu gunting untuk memotong plastik
+    audioClips:
+    - {fileID: 8300000, guid: 005147cda31fccb4a92c60e0d123b322, type: 3}
+    - {fileID: 8300000, guid: 2d35b1e2476c2774588ee11000a60de8, type: 3}
 --- !u!1 &1403477836
 GameObject:
   m_ObjectHideFlags: 0

@@ -1885,14 +1885,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: PENDUDUK
+    name: sahrul
     sentences:
-    - Jika semua sudah terkumpul, maka carilah gunting
-    - lalu gunting botol plastik menjadi setengah bagian, kita hanya membutuhkan
-      bagian bawah botol nya saja
-    - setelah itu, isi dengan tanah, dan tanamkan bunga ke dalam botol yang sudah
-      terisi tanah
-    - setelah itu, kamu bisa tekan buat produk pada tombol misi
+    - Jika semua sudah terkumpul lalu gunting botol plastik menjadi setengah bagian,
+      kita hanya membutuhkan bagian bawah botol nya saja...
+    - setelah itu, isi bagian bawahnya dengan tanah, dan tanamkan bunga ke dalam
+      botol yang sudah terisi tanah...
+    - setelah itu, kamu bisa tekan buat produk pada tombol misi.
+    audioClips:
+    - {fileID: 8300000, guid: 2b8d09834f88dc04a9d01f8aad882b13, type: 3}
+    - {fileID: 8300000, guid: 4aa1f0a5c4863f648b23657d670952e6, type: 3}
+    - {fileID: 8300000, guid: 2712fdfdf19bf2444bcd47c366ea1b67, type: 3}
 --- !u!114 &123985736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29857,9 +29860,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: PENDUDUK
+    name: sahrul
     sentences:
-    - lalu kumpulkan botol plastik
+    - setelah kita mengumpulkan botol plastik, lalu kita cari gunting
+    audioClips:
+    - {fileID: 8300000, guid: 73359c583a1014b4e967417b6ddd2f57, type: 3}
 --- !u!114 &1283481029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50154,9 +50159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    name: PENDUDUK
+    name: sahrul
     sentences:
     - untuk membuat vas bunga dari botol, pertama kita siapkan bunga terlebih duhulu
+    - lalu selanjutnya kita kumpulkan botol plastik bekas
+    audioClips:
+    - {fileID: 8300000, guid: 790a502ed34df3d479431e513190255d, type: 3}
+    - {fileID: 8300000, guid: 63a50e13659c90946bc4746091121b4a, type: 3}
 --- !u!114 &1945172170
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,10 +10,12 @@ public class DialogManager : MonoBehaviour
     public GameObject tutorialPanel;
 
     private Queue<string> sentences;
+    private Queue<AudioClip> audioClips; // Tambahkan ini
 
     private void Start()
     {
         sentences = new Queue<string>();
+        audioClips = new Queue<AudioClip>(); // Tambahkan ini
         tutorialPanel.SetActive(false); // Hide the tutorial panel at the start
     }
 
@@ -24,9 +26,14 @@ public class DialogManager : MonoBehaviour
         namaText.text = dialog.name;
 
         sentences.Clear();
+        audioClips.Clear(); // Tambahkan ini
         foreach (string sentence in dialog.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+        foreach (AudioClip clip in dialog.audioClips)
+        {
+            audioClips.Enqueue(clip); // Tambahkan ini
         }
         DisplayNextSentence();
     }
@@ -40,8 +47,11 @@ public class DialogManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+        AudioClip clip = audioClips.Dequeue(); // Tambahkan ini
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+        AudioManager.instance.PlaySoundDialog(clip); // Tambahkan ini
     }
 
     IEnumerator TypeSentence(string sentence)

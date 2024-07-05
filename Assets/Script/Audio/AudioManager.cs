@@ -206,4 +206,13 @@ public class AudioManager : MonoBehaviour
     {
         PlaySound(salahpertanyaan);
     }
+
+    public void PlaySoundDialog(AudioClip clip)
+    {
+        if (clip != null && GameData.InstanceData.onSound)
+        {
+            audioSound.PlayOneShot(clip);
+            Debug.Log($"Playing sound: {clip.name}");
+        }
+    }
 }
