@@ -12375,22 +12375,14 @@ MonoBehaviour:
   m_text: 'pemburu sampah
 
 
-    TIM SADAKO
-
 
     dibuat oleh :
 
-    muhamad sahrul
-    syabani (PROGRAMMER)
-
-    Putri Willa Andini (ASSETS MANAGER)
-
-    Rohadatul
-    Aisyi Fatikha (UI UX)
+    muhamad sahrul syabani (20090056)
 
 
-    prodi sarjana terapan teknik informatika politeknik
-    harapan bersama'
+    prodi
+    sarjana terapan teknik informatika politeknik harapan bersama'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -15582,6 +15574,7 @@ MonoBehaviour:
   weaponInfo2: {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}
   weaponInfo3: {fileID: 11400000, guid: 5b0b7865449a3a04cb91eb5b83fbb365, type: 2}
   totalSkor: {fileID: 1678470150}
+  senjataKoinText: {fileID: 1678470150}
   notifBerhasil1: {fileID: 607215760}
   notifGagal: {fileID: 661744635}
 --- !u!114 &2051419823
@@ -15603,6 +15596,7 @@ MonoBehaviour:
   level5OrganicScore: 0
   level6OrganicScore: 0
   totalOrganicScore: 0
+  senjataKoin: 0
   allWeaponInfos:
   - {fileID: 11400000, guid: 8f600aa91463dbc4d998b856f92ba6dd, type: 2}
   - {fileID: 11400000, guid: c091ca0c8bf1202479e737573c0b7524, type: 2}

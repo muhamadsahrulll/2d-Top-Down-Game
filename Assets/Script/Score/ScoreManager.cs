@@ -19,6 +19,7 @@ public class ScoreManager : MonoBehaviour
 
     // Variabel untuk menyimpan skor organik keseluruhan
     public int totalOrganicScore;
+    public int senjataKoin; // Variabel baru untuk senjata koin
 
     // Variabel untuk menyimpan referensi ke semua senjata
     public List<WeaponInfo> allWeaponInfos = new List<WeaponInfo>();
@@ -41,6 +42,7 @@ public class ScoreManager : MonoBehaviour
         LoadScores();
         CalculateTotalOrganicScore();
         LoadWeaponPurchases();
+        senjataKoin = totalOrganicScore;
     }
 
     public void Update()
@@ -78,6 +80,7 @@ public class ScoreManager : MonoBehaviour
         }
         SaveScores();
         CalculateTotalOrganicScore();
+        senjataKoin = totalOrganicScore; // Update senjataKoin setiap kali skor ditambah
     }
 
     private void SaveScores()
@@ -126,6 +129,7 @@ public class ScoreManager : MonoBehaviour
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 2);
+            senjataKoin -= weaponInfo.cost; // Kurangi senjataKoin saat membeli senjata
             //tambahkan start corotine IEnumerator notifBerhasil
             StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
         }
@@ -143,6 +147,7 @@ public class ScoreManager : MonoBehaviour
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 3);
+            senjataKoin -= weaponInfo.cost; // Kurangi senjataKoin saat membeli senjata
             //tambahkan start corotine IEnumerator notifBerhasil
             StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
         }

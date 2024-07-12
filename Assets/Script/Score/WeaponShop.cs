@@ -11,6 +11,7 @@ public class WeaponShop : MonoBehaviour
     public WeaponInfo weaponInfo2;
     public WeaponInfo weaponInfo3;
     public TextMeshProUGUI totalSkor;
+    public TextMeshProUGUI senjataKoinText;
 
     public GameObject notifBerhasil1;
     public GameObject notifGagal;
@@ -32,6 +33,7 @@ public class WeaponShop : MonoBehaviour
     {
         // Update text for total organic score
         totalSkor.text = "Total Koin: " + ScoreManager.Instance.totalOrganicScore.ToString();
+        senjataKoinText.text = "Koin: " + ScoreManager.Instance.senjataKoin.ToString();
     }
     public void BuyWeapon1()
     {
