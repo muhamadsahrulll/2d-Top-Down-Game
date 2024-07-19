@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    
 
     // Variabel untuk menyimpan skor organik tiap level
     public int level1OrganicScore;
@@ -15,11 +14,9 @@ public class ScoreManager : MonoBehaviour
     public int level5OrganicScore;
     public int level6OrganicScore;
 
-
-
     // Variabel untuk menyimpan skor organik keseluruhan
     public int totalOrganicScore;
-    public int senjataKoin; // Variabel baru untuk senjata koin
+    public int senjataKoin; // Variabel untuk koin senjata, tidak sama dengan totalOrganicScore
 
     // Variabel untuk menyimpan referensi ke semua senjata
     public List<WeaponInfo> allWeaponInfos = new List<WeaponInfo>();
@@ -42,13 +39,14 @@ public class ScoreManager : MonoBehaviour
         LoadScores();
         CalculateTotalOrganicScore();
         LoadWeaponPurchases();
-        senjataKoin = totalOrganicScore;
+        LoadSenjataKoin();
     }
 
-    public void Update()
+    private void Update()
     {
         SaveScores();
         SaveWeaponPurchases();
+        SaveSenjataKoin();
     }
 
     // Fungsi untuk menambah skor organik pada level tertentu
@@ -69,10 +67,10 @@ public class ScoreManager : MonoBehaviour
                 level4OrganicScore += score;
                 break;
             case 5:
-                level5OrganicScore += score; // Tambahkan kasus untuk level 5
+                level5OrganicScore += score;
                 break;
             case 6:
-                level6OrganicScore += score; //level6
+                level6OrganicScore += score;
                 break;
             default:
                 Debug.LogWarning("Level tidak valid.");
@@ -80,7 +78,13 @@ public class ScoreManager : MonoBehaviour
         }
         SaveScores();
         CalculateTotalOrganicScore();
-        senjataKoin = totalOrganicScore; // Update senjataKoin setiap kali skor ditambah
+    }
+
+    // Fungsi untuk menambah koin senjata
+    public void AddSenjataKoin(int koin)
+    {
+        senjataKoin += koin;
+        SaveSenjataKoin();
     }
 
     private void SaveScores()
@@ -89,66 +93,66 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt("Level2OrganicScore", level2OrganicScore);
         PlayerPrefs.SetInt("Level3OrganicScore", level3OrganicScore);
         PlayerPrefs.SetInt("Level4OrganicScore", level4OrganicScore);
-        PlayerPrefs.SetInt("Level5OrganicScore", level5OrganicScore); // Tambahkan penyimpanan untuk level 5
-        PlayerPrefs.SetInt("Level6OrganicScore", level6OrganicScore); //level 6
+        PlayerPrefs.SetInt("Level5OrganicScore", level5OrganicScore);
+        PlayerPrefs.SetInt("Level6OrganicScore", level6OrganicScore);
     }
 
-    // Fungsi untuk memuat skor organik dari PlayerPrefs
     private void LoadScores()
     {
         level1OrganicScore = PlayerPrefs.GetInt("Level1OrganicScore");
         level2OrganicScore = PlayerPrefs.GetInt("Level2OrganicScore");
         level3OrganicScore = PlayerPrefs.GetInt("Level3OrganicScore");
         level4OrganicScore = PlayerPrefs.GetInt("Level4OrganicScore");
-        level5OrganicScore = PlayerPrefs.GetInt("Level5OrganicScore"); // Tambahkan pemuatan untuk level 5
+        level5OrganicScore = PlayerPrefs.GetInt("Level5OrganicScore");
         level6OrganicScore = PlayerPrefs.GetInt("Level6OrganicScore");
     }
 
-    // Fungsi untuk menghitung total skor organik keseluruhan
     private void CalculateTotalOrganicScore()
     {
-        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore + level5OrganicScore + level6OrganicScore; // Tambahkan level 5
+        totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore + level5OrganicScore + level6OrganicScore;
     }
-    
 
+    private void SaveSenjataKoin()
+    {
+        PlayerPrefs.SetInt("SenjataKoin", senjataKoin);
+    }
 
-    //FUNGSI BELI SENJATA
+    private void LoadSenjataKoin()
+    {
+        senjataKoin = PlayerPrefs.GetInt("SenjataKoin", 0);
+    }
+
     // Fungsi beli senjata
     public void BuyWeapon1(WeaponInfo weaponInfo)
     {
         weaponInfo.isPurchased = true;
         SaveWeaponPurchase(weaponInfo, 1);
-
-        //tambahkan start corotine IEnumerator notifBerhasil
         StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
     }
 
     public void BuyWeapon2(WeaponInfo weaponInfo)
     {
-        if (totalOrganicScore >= 100 && !weaponInfo.isPurchased)
+        if (senjataKoin >= 100 && !weaponInfo.isPurchased)
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 2);
             senjataKoin -= weaponInfo.cost; // Kurangi senjataKoin saat membeli senjata
-            //tambahkan start corotine IEnumerator notifBerhasil
             StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
         }
         else
         {
             Debug.LogWarning("Skor tidak mencukupi atau senjata sudah dibeli.");
-            //tambahkan start corotine IEnumerator notifBerhasil
             StartCoroutine(WeaponShop.Instance.notifGagal2(2.0f));
         }
     }
 
     public void BuyWeapon3(WeaponInfo weaponInfo)
     {
-        if (totalOrganicScore >= 200 && !weaponInfo.isPurchased)
+        if (senjataKoin >= 200 && !weaponInfo.isPurchased)
         {
             weaponInfo.isPurchased = true;
             SaveWeaponPurchase(weaponInfo, 3);
             senjataKoin -= weaponInfo.cost; // Kurangi senjataKoin saat membeli senjata
-            //tambahkan start corotine IEnumerator notifBerhasil
             StartCoroutine(WeaponShop.Instance.notifBerhasil(2.0f));
         }
         else
@@ -169,10 +173,8 @@ public class ScoreManager : MonoBehaviour
         weaponInfo.isPurchased = PlayerPrefs.GetInt(weaponInfo.name + "_Purchased" + weaponIndex, 0) == 1;
     }
 
-    // Fungsi untuk menyimpan status pembelian senjata saat game berjalan
     private void SaveWeaponPurchases()
     {
-        // Disini kamu bisa loop untuk menyimpan status pembelian semua senjata yang kamu punya.
         foreach (WeaponInfo weaponInfo in allWeaponInfos)
         {
             SaveWeaponPurchase(weaponInfo, 1);
@@ -181,10 +183,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Fungsi untuk memuat status pembelian senjata saat permainan dimulai
     private void LoadWeaponPurchases()
     {
-        // Disini kamu bisa loop untuk memuat status pembelian semua senjata yang kamu punya.
         foreach (WeaponInfo weaponInfo in allWeaponInfos)
         {
             LoadWeaponPurchase(weaponInfo, 1);
@@ -192,7 +192,4 @@ public class ScoreManager : MonoBehaviour
             LoadWeaponPurchase(weaponInfo, 3);
         }
     }
-
-
-
 }

@@ -102,10 +102,12 @@ public class QuizManager1 : MonoBehaviour
             {
                 PlayerPrefs.SetInt("QuizTrashReward_Level3", quizTrashReward);
                 selamat.SetActive(true);
+                player.SetActive(false);
                 timer.PauseTimer();
                 finish1.Play();
                 finish2.Play();
                 ScoreManager.Instance.AddOrganicScore(currentLevel, quizTrashReward);
+                ScoreManager.Instance.AddSenjataKoin(quizTrashReward);
                 rewardText.text = "Selamat Anda Mendapatkan Score :" + quizTrashReward;
                 AudioManager.instance.PlaySfxSelamat();
             }

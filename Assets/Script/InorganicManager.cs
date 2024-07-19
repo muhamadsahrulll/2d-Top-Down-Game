@@ -77,10 +77,12 @@ public class InorganicManager : MonoBehaviour
             Debug.Log("Inorganic Trash Mission Completed");
             PlayerPrefs.SetInt("InorganicTrashReward", inorganicTrashReward);
             selamat.SetActive(true);
+            player.SetActive(false);
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, inorganicTrashReward); // Menambah skor organik pada level tertentu
+            ScoreManager.Instance.AddSenjataKoin(inorganicTrashReward);
             rewardText.text = "Selamat Anda Mendapatkan Score : " + inorganicTrashReward;
             AudioManager.instance.PlaySfxSelamat();
         }

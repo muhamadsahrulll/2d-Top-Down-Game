@@ -104,10 +104,12 @@ public class RecycleManager2 : MonoBehaviour
             PlayerPrefs.SetInt("RecycleTrashReward2", recycleTrashReward2);
             PlayerPrefs.SetInt("RecycleMissionCompleted2", 1);
             selamat.SetActive(true);
+            player.SetActive(false);
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, recycleTrashReward2);
+            ScoreManager.Instance.AddSenjataKoin(recycleTrashReward2);
             rewardText.text = "Selamat Anda Mendapatkan Score : " + recycleTrashReward2;
             AudioManager.instance.PlaySfxSelamat();
             SaveGameData();

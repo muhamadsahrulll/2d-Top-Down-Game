@@ -68,7 +68,7 @@ public class mainmenu : MonoBehaviour
             case "level5":
                 return ScoreManager.Instance.totalOrganicScore >= 4 * requiredScore; // Tambahkan pengecekan untuk level 5
             case "level6":
-                return ScoreManager.Instance.totalOrganicScore >= 5 * requiredScore;
+                return ScoreManager.Instance.totalOrganicScore >= 4 * requiredScore;
             default:
                 Debug.LogWarning("Nama level tidak valid.");
                 return false;

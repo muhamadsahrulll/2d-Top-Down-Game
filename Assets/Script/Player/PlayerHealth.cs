@@ -26,6 +26,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Update()
+    {
+        //TakeDamage(damageOnApproach);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();

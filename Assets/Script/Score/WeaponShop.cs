@@ -21,7 +21,7 @@ public class WeaponShop : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject); // Jika perlu agar objek tidak dihancurkan saat pindah scene
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -31,10 +31,10 @@ public class WeaponShop : MonoBehaviour
 
     private void Update()
     {
-        // Update text for total organic score
-        totalSkor.text = "Total Koin: " + ScoreManager.Instance.totalOrganicScore.ToString();
+        totalSkor.text = "Total Skor: " + ScoreManager.Instance.totalOrganicScore.ToString();
         senjataKoinText.text = "Koin: " + ScoreManager.Instance.senjataKoin.ToString();
     }
+
     public void BuyWeapon1()
     {
         ScoreManager.Instance.BuyWeapon1(weaponInfo1);

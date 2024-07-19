@@ -86,11 +86,13 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Misi Selesai");
             PlayerPrefs.SetInt("OrganicTrashReward", organicTrashReward);
+            player.SetActive(false);
             selamat.SetActive(true);
             timer.PauseTimer();
             finish1.Play();
             finish2.Play();
             ScoreManager.Instance.AddOrganicScore(currentLevel, organicTrashReward); // Menambah skor organik pada level tertentu
+            ScoreManager.Instance.AddSenjataKoin(organicTrashReward);
             rewardText.text = "Selamat Anda Mendapatkan Score : " + organicTrashReward;
             AudioManager.instance.PlaySfxSelamat();
             // Instansiasi prefab confetti
