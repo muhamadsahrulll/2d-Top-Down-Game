@@ -125,9 +125,9 @@ public class RecycleManager2 : MonoBehaviour
     {
         Debug.Log("Player mati di level 2");
         PlayerPrefs.SetInt("RecycleTrashCollected2", 0);
-        PlayerPrefs.SetInt("SampahPlastik", 0);
+        PlayerPrefs.SetInt("SampahBotol", 0);
         PlayerPrefs.SetInt("SampahGunting2", 0);
-        PlayerPrefs.SetInt("SampahTali", 0);
+        PlayerPrefs.SetInt("SampahBunga", 0);
         PlayerPrefs.SetInt("RecycleTrashReward2", 0);
         ResetProgress();
         Kalah.SetActive(true);
@@ -153,8 +153,8 @@ public class RecycleManager2 : MonoBehaviour
 
     private void UpdateUIText()
     {
-        botol.text = "Plastik : " + sampahBotol;
-        bunga.text = "Tali : " + sampahBunga;
+        botol.text = "Botol : " + sampahBotol;
+        bunga.text = "Bunga : " + sampahBunga;
         guting.text = "Gunting : " + sampahGunting;
     }
 
