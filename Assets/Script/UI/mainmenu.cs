@@ -16,6 +16,14 @@ public class mainmenu : MonoBehaviour
     public TextMeshProUGUI totalOrganicScoreText;
     public GameObject tidakcukup;
 
+    [Header("HISTORI")]
+    public TextMeshProUGUI level1ScoreTxt;
+    public TextMeshProUGUI level2ScoreTxt;
+    public TextMeshProUGUI level3ScoreTxt;
+    public TextMeshProUGUI level4ScoreTxt;
+    public TextMeshProUGUI level5ScoreTxt;
+    public TextMeshProUGUI level6ScoreTxt;
+
 
     private void Update()
     {
@@ -29,6 +37,14 @@ public class mainmenu : MonoBehaviour
 
         // Update text for total organic score
         totalOrganicScoreText.text = "Total Score: " + ScoreManager.Instance.totalOrganicScore.ToString();
+
+        //update score histori
+        level1ScoreTxt.text = "Score Level 1 kamu " + ScoreManager.Instance.level1OrganicScore.ToString();
+        level2ScoreTxt.text = "Score Level 2 kamu " + ScoreManager.Instance.level2OrganicScore.ToString();
+        level3ScoreTxt.text = "Score Level 3 kamu " + ScoreManager.Instance.level3OrganicScore.ToString();
+        level4ScoreTxt.text = "Score Level 4 kamu " + ScoreManager.Instance.level4OrganicScore.ToString();
+        level5ScoreTxt.text = "Score Level 5 kamu " + ScoreManager.Instance.level5OrganicScore.ToString();
+        level6ScoreTxt.text = "Score Level 6 kamu " + ScoreManager.Instance.level6OrganicScore.ToString();
     }
     public void KeluarGame()
     {
