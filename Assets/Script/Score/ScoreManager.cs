@@ -112,6 +112,24 @@ public class ScoreManager : MonoBehaviour
         totalOrganicScore = level1OrganicScore + level2OrganicScore + level3OrganicScore + level4OrganicScore + level5OrganicScore + level6OrganicScore;
     }
 
+    public int GetHighScore()
+    {
+        int highScore = Mathf.Max(level1OrganicScore, level2OrganicScore, level3OrganicScore, level4OrganicScore, level5OrganicScore, level6OrganicScore);
+        return highScore;
+    }
+
+    public string GetHighestLevel()
+    {
+        int highScore = GetHighScore();
+        if (highScore == level1OrganicScore) return "1";
+        if (highScore == level2OrganicScore) return "2";
+        if (highScore == level3OrganicScore) return "3";
+        if (highScore == level4OrganicScore) return "4";
+        if (highScore == level5OrganicScore) return "5";
+        if (highScore == level6OrganicScore) return "6";
+        return "";
+    }
+
     private void SaveSenjataKoin()
     {
         PlayerPrefs.SetInt("SenjataKoin", senjataKoin);
