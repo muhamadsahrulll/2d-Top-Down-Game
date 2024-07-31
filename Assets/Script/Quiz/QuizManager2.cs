@@ -11,17 +11,13 @@ public class QuizManager2 : MonoBehaviour
 
     // Variabel untuk sampah anorganik
     public int quiz2TrashCollected = 0;
-    public int totalquiz2Trash = 4;
+    public int totalquiz2Trash = 5;
     public int quiz2TrashReward = 10;
     private int currentLevel = 4;
-    public int reward75 = 75;
-    public int reward50 = 50;
-    public int reward25 = 25;
 
     public int totalQuestionsAnswered = 0; // Total pertanyaan yang telah dijawab
     public int totalWrongAnswers = 0; // Total jawaban yang salah
 
-    [Header("MENANG")]
     public GameObject tutor1;
     public GameObject selamat;
     public GameObject Kalah;
@@ -33,7 +29,6 @@ public class QuizManager2 : MonoBehaviour
     public TextMeshProUGUI quiz2TrashCollectedText;
     public TextMeshProUGUI totalquiz2TrashText;
     public TextMeshProUGUI rewardText;
-    public TextMeshProUGUI kalahreward;
 
     public GameObject jawabanBenar;
     public GameObject jawabanSalah;
@@ -96,47 +91,16 @@ public class QuizManager2 : MonoBehaviour
     {
         if (totalQuestionsAnswered >= totalquiz2Trash)
         {
-            if (totalWrongAnswers == 1)
-            {
-                // Menang dengan satu jawaban salah
-                PlayerPrefs.SetInt("QuizTrashReward_Level4", reward75);
-                selamat.SetActive(true);
-                player.SetActive(false);
-                timer.PauseTimer();
-                finish1.Play();
-                finish2.Play();
-                ScoreManager.Instance.AddOrganicScore(currentLevel, reward75);
-                ScoreManager.Instance.AddSenjataKoin(reward75);
-                rewardText.text = "Selamat Anda Mendapatkan Score: " + reward75;
-                AudioManager.instance.PlaySfxSelamat();
-            }
-            else if (totalWrongAnswers > 1)
+            if (totalWrongAnswers > 0)
             {
                 KalahSoal.SetActive(true);
-                AudioManager.instance.PlaySoalSalah();
-                kalahreward.text = "Skor Kamu : 0";
                 timer.PauseTimer();
-
-                // Kondisi tambahan untuk memberikan reward berdasarkan jumlah jawaban salah
-                if (totalWrongAnswers == 2)
-                {
-                    kalahreward.text = "Skor Kamu : " + reward50;
-                    ScoreManager.Instance.AddOrganicScore(currentLevel, reward50);
-                    ScoreManager.Instance.AddSenjataKoin(reward50);
-                    Debug.Log("Score Anda: " + reward50);
-                }
-                else if (totalWrongAnswers == 3)
-                {
-                    kalahreward.text = "Skor Kamu : " + reward25;
-                    ScoreManager.Instance.AddOrganicScore(currentLevel, reward25);
-                    ScoreManager.Instance.AddSenjataKoin(reward25);
-                    Debug.Log("Score Anda: " + reward25);
-                }
+                // Tambahkan logika untuk game over di sini
+                AudioManager.instance.PlaySoalSalah();
             }
             else
             {
-                // Menang tanpa jawaban salah
-                PlayerPrefs.SetInt("QuizTrashReward_Level4", quiz2TrashReward);
+                PlayerPrefs.SetInt("Quiz2TrashReward_Level4", quiz2TrashReward);
                 selamat.SetActive(true);
                 player.SetActive(false);
                 timer.PauseTimer();
@@ -144,7 +108,7 @@ public class QuizManager2 : MonoBehaviour
                 finish2.Play();
                 ScoreManager.Instance.AddOrganicScore(currentLevel, quiz2TrashReward);
                 ScoreManager.Instance.AddSenjataKoin(quiz2TrashReward);
-                rewardText.text = "Selamat Anda Mendapatkan Score: " + quiz2TrashReward;
+                rewardText.text = "Selamat Anda Mendapatkan Score :" + quiz2TrashReward;
                 AudioManager.instance.PlaySfxSelamat();
             }
         }
