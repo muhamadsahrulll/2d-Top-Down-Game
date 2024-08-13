@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 201289206250419167}
   - component: {fileID: 201289206250419166}
   - component: {fileID: 566119041507627464}
+  - component: {fileID: 1840844371704760328}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -43,7 +44,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 696712e20abb844469990e9f5b92d7be, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.913
   m_Pitch: 1
@@ -141,7 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fff9a1b4299ab6489ffd48073ad6870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSound: {fileID: 0}
+  backgroundAudioSource: {fileID: 201289206250419166}
+  sfxAudioSource: {fileID: 1840844371704760328}
+  backgroundMusic: {fileID: 8300000, guid: 696712e20abb844469990e9f5b92d7be, type: 3}
   buttonBakteri: {fileID: 8300000, guid: d20b0047f467f8c498287e92125171ea, type: 3}
   buttonKuman: {fileID: 8300000, guid: efbb34c068983d3468dbe7ceb2f5518d, type: 3}
   buttonOrganik: {fileID: 8300000, guid: 98c1bbcd5f5a3554d8bd64795f7ea926, type: 3}
@@ -160,3 +163,99 @@ MonoBehaviour:
   kalahbakteri: {fileID: 8300000, guid: 74a2c1ad38e97ef48ba65a5195ac5bbf, type: 3}
   waktuhabis: {fileID: 8300000, guid: 6bdc9cc01d504a94891acdbde4dbf708, type: 3}
   salahpertanyaan: {fileID: 8300000, guid: b679f06912c2108428c5c6e5714212ba, type: 3}
+--- !u!82 &1840844371704760328
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201289206250419165}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.913
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

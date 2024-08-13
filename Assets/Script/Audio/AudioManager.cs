@@ -6,7 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public AudioSource audioSound;
+    public AudioSource backgroundAudioSource;  // Untuk musik latar
+    public AudioSource sfxAudioSource;         // Untuk efek suara (SFX)
+
+    public AudioClip backgroundMusic;          // Musik latar
     public AudioClip buttonBakteri;
     public AudioClip buttonKuman;
     public AudioClip buttonOrganik;
@@ -30,9 +33,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip waktuhabis;
     public AudioClip salahpertanyaan;
 
-    private Queue<AudioClip> audioQueue = new Queue<AudioClip>();
-    private bool isPlaying = false;
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -44,10 +44,9 @@ public class AudioManager : MonoBehaviour
             instance = this;
         }
 
-        audioSound = GetComponent<AudioSource>();
-        if (audioSound == null)
+        if (backgroundAudioSource == null || sfxAudioSource == null)
         {
-            Debug.LogError("AudioSource component not found!");
+            Debug.LogError("AudioSource components not found!");
         }
     }
 
@@ -61,7 +60,7 @@ public class AudioManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         if (!GameData.InstanceData.onSound)
         {
-            audioSound.Stop();
+            backgroundAudioSource.Stop();
         }
     }
 
@@ -69,150 +68,49 @@ public class AudioManager : MonoBehaviour
     {
         if (on)
         {
-            audioSound.Play();
+            if (!backgroundAudioSource.isPlaying) // Pastikan hanya memulai kembali musik jika belum diputar
+            {
+                backgroundAudioSource.Play();
+            }
             GameData.InstanceData.onSound = true;
         }
         else
         {
-            audioSound.Stop();
+            backgroundAudioSource.Stop();
             GameData.InstanceData.onSound = false;
         }
 
         StartCoroutine(CheckSound());
     }
 
-    private IEnumerator PlayQueuedSounds()
-    {
-        while (audioQueue.Count > 0)
-        {
-            AudioClip clip = audioQueue.Dequeue();
-            audioSound.PlayOneShot(clip);
-            Debug.Log($"Playing sound: {clip.name}");
-            yield return new WaitForSeconds(clip.length);
-        }
-        isPlaying = false;
-    }
-
     private void PlaySound(AudioClip clip)
     {
-        if (GameData.InstanceData.onSound)
+        if (GameData.InstanceData.onSound && clip != null)
         {
-            if (!isPlaying)
-            {
-                audioQueue.Enqueue(clip);
-                isPlaying = true;
-                StartCoroutine(PlayQueuedSounds());
-            }
-            else if (audioQueue.Count == 0)
-            {
-                audioQueue.Enqueue(clip);
-            }
-        }
-    }
-
-    public void PlayButtonBakteri()
-    {
-        PlaySound(buttonBakteri);
-        Debug.Log("Button Bakteri clicked");
-    }
-
-    public void PlayButtonKuman()
-    {
-        PlaySound(buttonKuman);
-        Debug.Log("Button Kuman clicked");
-    }
-
-    public void PlayButtonOrganik()
-    {
-        PlaySound(buttonOrganik);
-        Debug.Log("Button Organik clicked");
-    }
-
-    public void PlayButtonAnorganik()
-    {
-        PlaySound(buttonAnorganik);
-        Debug.Log("Button Anorganik clicked");
-    }
-
-    public void PlaySfxBenar()
-    {
-        PlaySound(sfxBenar);
-        Debug.Log("SFX Benar played");
-    }
-
-    public void PlaySfxSalah()
-    {
-        PlaySound(sfxSalah);
-        Debug.Log("SFX Salah played");
-    }
-
-    public void PlaySfxSelamat()
-    {
-        PlaySound(sfxSelamat);
-        Debug.Log("SFX Selamat played");
-    }
-
-    public void PlayPickUp()
-    {
-        PlaySound(pickup);
-    }
-
-    public void PlayLevel1()
-    {
-        PlaySound(level1);
-    }
-
-    public void PlayLevel2()
-    {
-        PlaySound(level2);
-    }
-
-    public void PlayLevel3()
-    {
-        PlaySound(level3);
-    }
-
-    public void PlayLevel4()
-    {
-        PlaySound(level4);
-    }
-
-    public void PlayLevel5()
-    {
-        PlaySound(level5);
-    }
-
-    public void PlayLevel6()
-    {
-        PlaySound(level6);
-    }
-
-    public void PlaySoal()
-    {
-        PlaySound(Soal);
-    }
-
-    public void PlayWaktuHabis()
-    {
-        PlaySound(waktuhabis);
-    }
-
-    public void PlayKalahBakteri()
-    {
-        PlaySound(kalahbakteri);
-    }
-
-    public void PlaySoalSalah()
-    {
-        PlaySound(salahpertanyaan);
-    }
-
-    public void PlaySoundDialog(AudioClip clip)
-    {
-        if (clip != null && GameData.InstanceData.onSound)
-        {
-            audioSound.PlayOneShot(clip);
+            sfxAudioSource.Stop(); // Hentikan suara SFX yang sedang diputar
+            sfxAudioSource.PlayOneShot(clip); // Mainkan suara baru
             Debug.Log($"Playing sound: {clip.name}");
         }
     }
+
+    // Fungsi-fungsi untuk memutar SFX
+    public void PlayButtonBakteri() { PlaySound(buttonBakteri); }
+    public void PlayButtonKuman() { PlaySound(buttonKuman); }
+    public void PlayButtonOrganik() { PlaySound(buttonOrganik); }
+    public void PlayButtonAnorganik() { PlaySound(buttonAnorganik); }
+    public void PlaySfxBenar() { PlaySound(sfxBenar); }
+    public void PlaySfxSalah() { PlaySound(sfxSalah); }
+    public void PlaySfxSelamat() { PlaySound(sfxSelamat); }
+    public void PlayPickUp() { PlaySound(pickup); }
+    public void PlayLevel1() { PlaySound(level1); }
+    public void PlayLevel2() { PlaySound(level2); }
+    public void PlayLevel3() { PlaySound(level3); }
+    public void PlayLevel4() { PlaySound(level4); }
+    public void PlayLevel5() { PlaySound(level5); }
+    public void PlayLevel6() { PlaySound(level6); }
+    public void PlaySoal() { PlaySound(Soal); }
+    public void PlayWaktuHabis() { PlaySound(waktuhabis); }
+    public void PlayKalahBakteri() { PlaySound(kalahbakteri); }
+    public void PlaySoalSalah() { PlaySound(salahpertanyaan); }
+    public void PlaySoundDialog(AudioClip clip) { PlaySound(clip); }
 }

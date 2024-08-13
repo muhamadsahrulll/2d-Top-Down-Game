@@ -23388,6 +23388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 201289206250419166, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
     - target: {fileID: 201289206250419167, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -23432,6 +23436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 566119041507627464, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: a6d289ba71cae4c47bfc323ff42de049, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27e447fb9b9881c4f8dcd3afb4d76906, type: 3}
 --- !u!114 &1207770613 stripped
