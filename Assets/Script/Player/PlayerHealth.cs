@@ -43,7 +43,17 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("terkena damage");
         }
     }
-    
+
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth; // Pastikan kesehatan tidak melebihi nilai maksimal
+        }
+        Debug.Log("Player healed. Current health: " + currentHealth);
+    }
+
     public void TakeDamage(int damageAmount)
     {
         canTakeDamage = false;
