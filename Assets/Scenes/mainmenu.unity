@@ -12349,7 +12349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06560849, y: 0.09069983}
   m_AnchorMax: {x: 0.93226993, y: 0.93700004}
-  m_AnchoredPosition: {x: 0.29296875, y: 0.27749634}
+  m_AnchoredPosition: {x: 0.9999695, y: -0.21583557}
   m_SizeDelta: {x: -5.5110016, y: -0.43170166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578007851
@@ -12382,7 +12382,11 @@ MonoBehaviour:
 
 
     prodi
-    sarjana terapan teknik informatika politeknik harapan bersama'
+    sarjana terapan teknik informatika politeknik harapan bersama
+
+
+    INSTAGRAM
+    : @SAHRULLLXD (KECIL SEMUA)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -12409,8 +12413,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
-  m_fontSizeBase: 33
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
